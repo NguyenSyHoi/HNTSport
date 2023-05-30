@@ -1,0 +1,63 @@
+<div class="mt-10 text-center">
+  <h2 class="text-2xl font-sans">Sign In</h2>
+</div>
+<form
+  class="w-2/5 m-auto"
+  nz-form
+  nzNoColon
+  nzLayout="vertical"
+  [formGroup]="registerForm"
+>
+  <nz-form-item>
+    <nz-form-label> FIRST NAME </nz-form-label>
+    <nz-form-control>
+      <input type="text" nz-input formControlName="firstName" placeholder="FirstName"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label> LAST NAME </nz-form-label>
+    <nz-form-control>
+      <input type="text" nz-input formControlName="lastName" placeholder="LastName"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label> EMAIL </nz-form-label>
+    <nz-form-control>
+      <input type="text" nz-input formControlName="email" placeholder="Email" [(ngModel)]="registerForm.controls['email']"
+      />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label> PASSWORD </nz-form-label>
+    <nz-form-control>
+      <nz-input-group [nzSuffix]="eye">
+        <input
+          nz-input
+          [type]="showPassword ? 'text' : 'password'"
+          id=" nzSearch"
+          name=" nzSearch"
+          placeholder="Password"
+          formControlName="password"
+          [(ngModel)]="registerForm.controls['password']"
+
+        />
+      </nz-input-group>
+      <ng-template #eye>
+        <span
+          nz-icon
+          [nzType]="showPassword ? 'eye-invisible' : 'eye'"
+          nzTheme="outline"
+          class="cursor-pointer"
+          (click)="showPassword = !showPassword"
+        ></span>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <div>
+    <button  class="btn-submit p-2" (click)="register()">{{ "Create" | uppercase }}</button>
+  </div>
+  <div class="mt-4 text-center">
+    <p class="mt-2 name-card">Already have an account?</p>
+    <p class="link" (click)="login()">SIGN IN</p>
+  </div>
+</form>

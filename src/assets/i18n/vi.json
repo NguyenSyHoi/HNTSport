@@ -1,0 +1,19 @@
+{
+  "message": {
+    "required": "{{value}} không được để trống",
+    "maxlength": "{{field}} không được nhiều hơn {{value}} ký tự",
+    "minlength": "{{field}} không được ít hơn {{value}} ký tự",
+    "min": "{{field}} không được phép nhỏ hơn {{value}}",
+    "max": "{{field}} không được phép lớn hơn {{value}} ký tự",
+    "pattern": "{{field}} không đúng định dạng"
+  },
+  "common":{
+    "pagination": " Hiển thị {{ fromRecord }} - {{ toRecord }} của {{ total }} bản ghi"
+  },
+  "loginForm": {
+    "username": "Tên đăng nhập",
+    "password": "Mật khẩu",
+    "sign_in": "Đăng nhập",
+    "sign_up": "Đăng ký"
+  }
+}

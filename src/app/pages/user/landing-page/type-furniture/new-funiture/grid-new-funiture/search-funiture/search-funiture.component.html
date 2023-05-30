@@ -1,0 +1,91 @@
+<form [formGroup]="searchForm">
+  <!-- category -->
+  <nz-collapse nzGhost nzExpandIconPosition="right" class="feature-search">
+    <nz-collapse-panel [nzHeader]="category">
+      <ng-container *ngFor="let cat of listCategory">
+        <p>{{ cat.categoryName }} &nbsp;
+        </p>
+      </ng-container>
+    </nz-collapse-panel>
+    <ng-template #category>
+      <span class="title-lg font-semibold">CATEGORY</span>
+    </ng-template>
+  </nz-collapse>
+  <!-- color -->
+  <nz-collapse nzGhost nzExpandIconPosition="right" class="feature-search">
+    <nz-collapse-panel [nzHeader]="color" [nzActive]="true">
+      <input
+        type="text"
+        nz-input
+        placeholder="Enter name color"
+        class="mb-4"
+        [formControl]="colorInput"
+        />
+        <!-- formControlName="colorInput" -->
+<!--      *ngIf="colorsArr.controls.length > 0"-->
+<!--      <div formArrayName="colors">-->
+<!--        <ng-container *ngFor="let item of colorsArr.controls; let idx = index">-->
+<!--          <div [formGroupName]="idx">-->
+<!--            <label nz-checkbox class="color" formControlName="checked">-->
+<!--              <div class="flex items-center">-->
+<!--                <div-->
+<!--                  class="box mr-2"-->
+<!--                  [style]="{ background: item.value.name }"-->
+<!--                ></div>-->
+<!--                <p>{{ item.value.name }} &nbsp; ({{ item.value.quantity }})</p>-->
+<!--              </div>-->
+<!--            </label>-->
+<!--          </div>-->
+<!--        </ng-container>-->
+<!--      </div>-->
+    </nz-collapse-panel>
+    <ng-template #color>
+      <span class="title-lg font-semibold">COLOR</span>
+    </ng-template>
+  </nz-collapse>
+  <!-- price -->
+  <nz-collapse nzGhost nzExpandIconPosition="right" class="feature-search">
+    <nz-collapse-panel [nzHeader]="price" [nzActive]="true">
+      <!--   -->
+      <nz-slider
+        nzRange
+        [nzMax]="priceValue"
+        [(ngModel)]="minMax"
+        [ngModelOptions]="{ standalone: true }"
+        name="slider"
+      >
+<!--        (ngModelChange)="changeSlider($event)"-->
+      </nz-slider>
+      <div class="flex justify-between">
+        <span>${{ minMax[0]}}</span>
+        <span>${{  minMax[1] }}</span>
+      </div>
+      <div class="input-price grid grid-cols-2 gap-7 mt-4">
+        <div class="min-price col-span-1">
+          <span>min price</span>
+          <input
+            type="text"
+            nz-input
+            formControlName="minPrice"
+            (keypress)="onlyNumber($event)"
+          />
+          <!-- [(ngModel)]="minprice" -->
+        </div>
+        <div class="max-price col-span-1">
+          <span>max price</span>
+          <!-- [(ngModel)]="maxprice" -->
+          <input
+            type="text"
+            nz-input
+            formControlName="maxPrice"
+            (keypress)="onlyNumber($event)"
+          />
+        </div>
+      </div>
+<!--      <button class="btn-submit mt-4 p-2" (click)="applyPrice()">APPLY</button>-->
+    </nz-collapse-panel>
+    <ng-template #price>
+      <span class="title-lg font-semibold">PRICE</span>
+    </ng-template>
+  </nz-collapse>
+</form>

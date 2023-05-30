@@ -1,0 +1,87 @@
+@import "src/styles/_variable.scss";
+.title-xs {
+  font-size: 8px;
+}
+
+.title {
+  font-size: 12px;
+  font-weight: 600;
+  font-family: math;
+}
+.title-lg {
+  font-family: sans-serif;
+}
+// pagination
+.vt-pagination {
+  .ant-pagination-prev,
+  .ant-pagination-next {
+    button {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+// css ant-form-item
+.ant-form-item {
+  margin: 0 0 22px 0;
+
+  .ant-form-item-label > label {
+    height: 28px;
+  }
+}
+//css spinning
+.ant-spin-nested-loading > div > .ant-spin{
+  position: fixed;
+  max-height: 100%;
+}
+// show error
+.ant-form-item.required-control {
+  margin: 0px;
+  app-show-error {
+    display: block;
+    min-height: 22px;
+    .text-invalid {
+      color: $error-color;
+    }
+  }
+}
+.errors {
+  background: #fff;
+  border-color: #ff7875 !important;
+}
+//label required
+.label-required {
+  &::after {
+    content: "*";
+    margin-left: 0.25rem;
+    color: $error-color;
+    font-weight: 600;
+  }
+}
+
+.title-card {
+  font-size: 10px;
+  font-weight: 700;
+  color: #252525;
+}
+.name-card {
+  font-size: 14px;
+  color: #666;
+}
+.container {
+  max-width: 1200px;
+  width: 100%;
+}
+.btn-submit {
+  font-size: 25px;
+  padding: 10px;
+  background: #ed1c24;
+  color: #eaeaea;
+  @apply w-full rounded-lg hover:opacity-80 text-zinc-50;
+}
+.link {
+  @apply underline underline-offset-1 mt-2 font-mono text-sm cursor-pointer;
+}
+.border-bottom-common {
+  border-bottom: 1px solid #eaeaea;
+}

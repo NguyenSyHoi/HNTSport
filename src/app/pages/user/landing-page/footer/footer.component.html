@@ -1,0 +1,75 @@
+<div class="container m-auto">
+  <div class="wrap">
+    <div class="col-span-1 leading-9">
+      <ng-container *ngFor="let item of dataCol1">
+        <h2 class="font-bold text-sm">
+          {{ item.title }}
+        </h2>
+        <p
+          *ngFor="let item of item.content"
+          class="title font-medium hover:text-teal-700 hover:underline"
+        >
+          {{ item.label | uppercase }}
+        </p>
+      </ng-container>
+    </div>
+    <div class="col-span-1 leading-9">
+      <ng-container *ngFor="let item of dataCol2">
+        <h2 class="font-bold text-sm">
+          {{ item.title }}
+        </h2>
+        <p
+          *ngFor="let item of item.content"
+          class="title font-medium hover:text-teal-700 hover:underline"
+        >
+          {{ item.label | uppercase }}
+        </p>
+      </ng-container>
+    </div>
+    <div class="col-span-1">
+      <h2 class="font-bold text-sm pb-5">TRADE PROGRAM</h2>
+      <span
+        >Join our <a>Trade Program</a> for access to trade pricing and
+        benefits.</span
+      >
+      <ng-container *ngFor="let item of dataCol3">
+        <h2 class="font-bold text-sm pb-5 pt-5">
+          {{ item.title }}
+        </h2>
+        <span>{{ item.content }}</span>
+      </ng-container>
+      <div class="email mt-12">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input type="text" nz-input placeholder="Enter your email address" />
+        </nz-input-group>
+        <ng-template #suffixIconSearch>
+          <span nz-icon nzType="mail" nzTheme="outline"></span>
+        </ng-template>
+      </div>
+      <div class="social mt-4">
+        <ng-container *ngFor="let item of listSocial">
+          <span
+            nz-icon
+            [nzType]="item.type"
+            nzTheme="outline"
+            class="mr-3 text-lg"
+          ></span>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="info py-6">
+    <div class="grid grid-cols-3 gap-4">
+      <div class="col-span-1">
+        <span class="title">© 2003-2022 CMCFUNITURE · San Francisco, CA</span>
+      </div>
+      <div class="col-span-2">
+        <ul class="flex footer-right">
+          <ng-container *ngFor="let item of dataFooter">
+            <li class="pl-2 pr-2 title underline underline-offset-1">{{ item.label }}</li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

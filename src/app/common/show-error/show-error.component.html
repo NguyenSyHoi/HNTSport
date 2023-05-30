@@ -1,0 +1,46 @@
+<ng-container
+  *ngIf="control && control.invalid && (control.touched || control.dirty)"
+>
+  <div [ngSwitch]="errorKey">
+    <ng-container *ngSwitchCase="'required'">
+      <span class="text-invalid">
+        {{ "message.required" | transloco : { value: controlName } }}
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'maxlength'">
+      <span class="text-invalid">
+        {{
+          "message.maxlength"
+            | transloco : { field: controlName, value: maxLength }
+        }}
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'minlength'">
+      <span class="text-invalid">
+        {{
+          "message.minlength"
+            | transloco : { field: controlName, value: minLength }
+        }}
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'min'">
+      <span class="text-invalid">
+        {{
+          "message.min" | transloco : { field: controlName, value: minLength }
+        }}
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'max'">
+      <span class="text-invalid">
+        {{
+          "message.max" | transloco : { field: controlName, value: minLength }
+        }}
+      </span>
+    </ng-container>
+    <ng-container *ngSwitchCase="'pattern'">
+      <span class="text-invalid">
+        {{ "message.pattern" | transloco : { field: controlName } }}
+      </span>
+    </ng-container>
+  </div>
+</ng-container>

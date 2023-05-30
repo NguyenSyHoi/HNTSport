@@ -1,0 +1,12 @@
+.grid-funiture{
+  @apply py-3 px-4 mt-5
+}
+.search-funiture{
+  @apply mt-5
+}
+.sorting{
+  border: 1px solid #eaeaea;
+  .sorting-action{
+    @apply flex justify-between items-baseline px-3 pb-2
+  }
+}

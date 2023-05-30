@@ -1,0 +1,76 @@
+<nz-table
+  [nzData]="dataSource"
+  nzBordered
+  [nzLoading]="isLoading"
+  [nzTotal]="50"
+  nzSize="small"
+  [nzShowPagination]="false"
+  [nzFooter]="showPagination ? footer : null"
+  >
+  <thead>
+    <tr>
+      <ng-container *ngIf="isCheckBox; else notCheckBox">
+        <th
+          nzWidth="30px"
+          [nzChecked]="isCheckedAll"
+          [nzIndeterminate]="indeterminate"
+          (nzCheckedChange)="onAllChecked($event)"
+        ></th>
+      </ng-container>
+      <ng-template #notCheckBox>
+        <th nzWidth="50px" nzAlign="center">STT</th>
+        <th nzWidth="100px" nzAlign="center">Thao tác</th>
+        <ng-container *ngFor="let item of columnData">
+          <th
+            [nzAlign]="item.align"
+            [nzColumnKey]="item?.sortKey"
+            [nzWidth]="item?.width"
+            [nzSortDirections]="['ascend', 'descend']"
+          >
+            {{ item.title }}
+          </th>
+        </ng-container>
+      </ng-template>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of dataSource; let index = index">
+      <ng-container *ngIf="isCheckBox; else dataNoCheckBox">
+        <td
+          [nzChecked]="setOfCheckedId.has(data.id)"
+          [nzDisabled]="data.disabled"
+          (nzCheckedChange)="onItemChecked(data.id, $event)"
+        ></td>
+      </ng-container>
+      <ng-template #dataNoCheckBox>
+        <td [nzAlign]="'center'">
+          {{ (pagination.pageIndex - 1) * pagination.pageSize + index + 1 }}
+        </td>
+        <td nzAlign="center">
+          <ng-container [ngTemplateOutlet]="action" [ngTemplateOutletContext]="{data:data}">
+          </ng-container>
+        </td>
+
+        <ng-container *ngFor="let column of columnData">
+          <td
+            [nzAlign]="column.align"
+            nz-tooltip
+            [nzTooltipTitle]="data[column.propertyName]"
+          >
+            {{ data[column.propertyName] }}
+          </td>
+        </ng-container>
+      </ng-template>
+    </tr>
+  </tbody>
+</nz-table>
+<ng-template #footer>
+  <div nz-row nzJustify="end">
+    <app-pagination
+      [(pageIndex)]="pagination.pageIndex"
+      [(pageSize)]="pagination.pageSize"
+      [total]="pagination.total"
+    >
+    </app-pagination>
+  </div>
+</ng-template>

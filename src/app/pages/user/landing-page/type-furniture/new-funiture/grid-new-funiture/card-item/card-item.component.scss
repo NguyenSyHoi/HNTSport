@@ -1,0 +1,28 @@
+.card{
+  @apply p-3 m-auto cursor-pointer;
+  .card-img{
+    @apply relative w-full overflow-hidden;
+  }
+  .image-overlay{
+    @apply absolute top-0 left-0 right-0 bottom-0 opacity-0;
+    transition: opacity 0.4s ease-in-out;
+  }
+  .card-img:hover .image-overlay{
+    opacity: 1;
+  }
+}
+.card:hover{
+ box-shadow: 0px 5px 5px #eaeaea;
+}
+.content{
+  @apply mt-5
+}
+.content-price{
+  @apply mt-5;
+}
+.box{
+  width: 18px;
+  height: 18px;
+  border: 1px solid #eaeaea;
+  @apply rounded-full mr-2;
+}

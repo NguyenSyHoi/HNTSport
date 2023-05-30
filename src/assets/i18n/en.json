@@ -1,0 +1,19 @@
+{
+  "message": {
+    "required": "{{value}} not blank",
+    "maxlength": "{{field}} cannot be more than {{value}} characters",
+    "minlength": "{{field}} cannot be less {{value}} characters",
+    "min": "{{field}} not allowed to be less than {{value}}",
+    "max": "{{field}} no bigger than {{value}} characters",
+    "pattern": "{{field}} invalidate"
+  },
+  "common":{
+    "pagination": "Showing {{ fromRecord }} - {{ toRecord }} of {{ total }} records"
+  },
+  "loginForm": {
+    "username": "Username",
+    "password": "Password",
+    "sign_in": "Sign in",
+    "sign_up": "Sign up"
+  }
+}

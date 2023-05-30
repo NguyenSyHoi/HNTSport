@@ -1,0 +1,50 @@
+<div class="grid grid-cols-4 gap-4">
+<!--  <div class="search-funiture">-->
+<!--    <app-search-funiture></app-search-funiture>-->
+<!--  </div>-->
+  <ng-container *ngIf="vm$ | async as vm">
+    <div class="col-span-4">
+      <div class="grid-funiture">
+        <div class="pagination-sorting grid grid-cols-3 gap-4">
+          <div class="col-span-2">
+            <app-pagination-landing-page
+              [total]="vm.data.totalElements"
+              (pageIndexChange)="service.pageIndex$.next($event)"
+              (pageSizeChange)="service.pageSize$.next($event)"
+            >
+            </app-pagination-landing-page>
+          </div>
+          <div class="col-span-1 sorting">
+            <span
+              nz-dropdown
+              nzTrigger="click"
+              [nzDropdownMenu]="menuSorting"
+              [nzVisible]="showDropDown"
+              (nzVisibleChange)="showDropDown = !showDropDown"
+            >
+              <span class="title pl-3 pr-3"> Sort By </span>
+              <br />
+              <div class="sorting-action">
+                <span>Best Selling</span>
+                <span
+                  nz-icon
+                  [nzType]="showDropDown ? 'down' : 'up'"
+                  nzTheme="outline"
+                  class="title"
+                ></span>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <app-card-item [listDataCard] = listDataCard> </app-card-item>
+    </div>
+  </ng-container>
+</div>
+<nz-dropdown-menu #menuSorting>
+  <ul nz-menu>
+    <ng-container *ngFor="let item of listSorting">
+      <li nz-menu-item (click)="onSort(item)">{{ item.label }}</li>
+    </ng-container>
+  </ul>
+</nz-dropdown-menu>

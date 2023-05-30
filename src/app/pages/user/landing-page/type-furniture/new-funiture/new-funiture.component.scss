@@ -1,0 +1,12 @@
+.new {
+  @apply pt-5 block text-center pb-5 border-solid;
+  border-bottom: 1px solid #eaeaea;
+}
+.banner {
+  @apply grid grid-cols-4 gap-4 mt-9 pb-9;
+  border-bottom: 1px solid #eaeaea;
+  //card-img
+  .card-img {
+    @apply rounded-md overflow-hidden;
+  }
+}

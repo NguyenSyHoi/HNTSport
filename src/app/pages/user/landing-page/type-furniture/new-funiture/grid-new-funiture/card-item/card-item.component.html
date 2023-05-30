@@ -1,0 +1,31 @@
+
+  <div class="grid grid-cols-4 gap-3">
+    <ng-container *ngFor="let item of listDataCard">
+      <div class="card" (click)="detailItem(item)">
+        <div class="card-img">
+          <img [src]="item.image" alt="" srcset="" class="w-full"/>
+          <div class="image-overlay">
+            <img [src]="item.image" alt="" class="w-full">
+          </div>
+        </div>
+
+<!--        <div class="card-color flex mt-3">-->
+<!--          <ng-container *ngFor="let el of item.colors">-->
+<!--            <div class="box" [style]="{background:el}">-->
+
+<!--            </div>-->
+<!--          </ng-container>-->
+<!--        </div>-->
+        <div class="content">
+          <div class="title-card">{{ item.product.productName }}</div>
+          <div class="name-card">{{ item.product.description }}</div>
+          <div class="content-price title-card">
+            <span>
+              {{ item.product.price | currency :'USD':'symbol':'1.0-0'}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+

@@ -1,0 +1,13 @@
+.feature-search {
+  border-bottom: 1px solid #eaeaea;
+}
+.box {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #eaeaea;
+  @apply rounded-full;
+}
+.color {
+  margin-left: 0px;
+  @apply flex items-center mb-4
+}

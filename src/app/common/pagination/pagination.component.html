@@ -1,0 +1,22 @@
+<nz-pagination
+  class="vt-pagination"
+  [nzPageIndex]="pageIndex"
+  [nzPageSize]="pageSize"
+  [nzTotal]="total"
+  [nzSize]="'small'"
+  [nzShowTotal]="totalTemplate"
+  [nzPageSizeOptions]="pageSizeOptions"
+  nzShowSizeChanger
+  nzShowQuickJumper
+  (nzPageIndexChange)="onPageIndexChange($event)"
+  (nzPageSizeChange)="onPageSizeChange($event)"
+></nz-pagination>
+<ng-template #totalTemplate let-total>
+  <span>
+    {{
+      "common.pagination"
+        | transloco
+          : { fromRecord: fromRecord, toRecord: toRecord, total: total }
+    }}
+  </span>
+</ng-template>

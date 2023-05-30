@@ -1,0 +1,95 @@
+<form nz-form [formGroup]="formGroup" [nzLayout]="layoutForm">
+  <div nz-row [nzGutter]="24">
+    <ng-container *ngFor="let item of dataForm.controls">
+      <ng-container [ngSwitch]="item.type">
+        <div nz-col [nzSpan]="col_grid">
+          <ng-container *ngSwitchCase="TYPE_INPUT.TEXTBOX">
+            <nz-form-item [class.required-control]="item.validators.required">
+              <nz-form-label
+                [class.label-required]="item.validators.required"
+                >{{ item.name }}</nz-form-label
+              >
+              <nz-form-control>
+                <input
+                  type="text"
+                  nz-input
+                  [placeholder]="item.name"
+                  [formControlName]="item.name"
+                  trim="blur"
+                  appStyleError
+                  [control]="formGroup.controls[item.name]"
+                />
+                <app-show-error
+                  [control]="formGroup.controls[item.name]"
+                  [controlName]="item.name"
+                  [minLength]="item.validators.minLength"
+                  [maxLength]="item.validators.maxLength"
+                >
+                </app-show-error>
+              </nz-form-control>
+            </nz-form-item>
+          </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.COMBOBOX">
+            <!-- <nz-form-item>
+              <nz-form-label>{{ item.title }}</nz-form-label>
+              <nz-form-control>
+                <nz-select
+                  [nzPlaceHolder]="item.placeHolder"
+                  [nzShowSearch]="item.isSearch"
+                  [nzServerSearch]="item.serverSearch"
+                  [formControlName]="item.code"
+                >
+                  <ng-container *ngFor="let data of item.dataSource">
+                    <nz-option
+                      [nzLabel]="data.name"
+                      [nzValue]="data.value"
+                    ></nz-option>
+                  </ng-container>
+                </nz-select>
+              </nz-form-control>
+            </nz-form-item> -->
+          </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.TEXTAREA">
+            <nz-form-item [class.required-control]="item.validators.required">
+              <nz-form-label
+                [class.label-required]="item.validators.required"
+                >{{ item.name }}</nz-form-label
+              >
+              <nz-form-control>
+                <textarea
+                  [placeholder]="item.name"
+                  [formControlName]="item.name"
+                  nz-input
+                  rows="3"
+                  trim="blur"
+                  appStyleError
+                  [control]="formGroup.controls[item.name]"
+                ></textarea>
+              </nz-form-control>
+            </nz-form-item>
+          </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.DATE">
+            <!-- <nz-form-item>
+              <nz-form-label [class.label-required]="item.required">{{
+                item.title
+              }}</nz-form-label>
+              <nz-form-control>
+                <nz-date-picker
+                  [formControlName]="item.code"
+                  class="w-100"
+                  [nzFormat]="item.format"
+                  (keyup)="autoSlash($event)"
+                ></nz-date-picker>
+              </nz-form-control>
+            </nz-form-item> -->
+          </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.CHECKBOX"> </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.RADIO"> </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.DATETIME"> </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.NUMBERIC"> </ng-container>
+          <ng-container *ngSwitchCase="TYPE_INPUT.MULTISELECT"> </ng-container>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</form>

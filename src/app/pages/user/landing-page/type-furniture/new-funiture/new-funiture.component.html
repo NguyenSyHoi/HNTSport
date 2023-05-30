@@ -1,0 +1,23 @@
+<div class="title">Có gì mới tại HNT Sport</div>
+<div class="new">
+  <span class="text-2xl title-lg">CÓ GÌ MỚI TẠI HNT SPORT</span>
+</div>
+<div class="banner">
+  <ng-container *ngFor="let item of listCard" >
+    <div class="card cursor-pointer">
+      <div class="card-img">
+        <img [src]="item.image" [alt]="item.title" />
+      </div>
+      <div class="card-text mt-3">
+       <span class="title hover:text-teal-700 hover:underline">
+         {{ item.title |uppercase}}
+       </span>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<div class="content">
+  <app-grid-new-funiture>
+
+  </app-grid-new-funiture>
+</div>

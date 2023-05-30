@@ -1,0 +1,17 @@
+<nz-pagination
+  class="vt-pagination"
+  [nzPageIndex]="pageIndex"
+  [nzPageSize]="pageSize"
+  [nzTotal]="total"
+  [nzSize]="'small'"
+  [nzShowTotal]="totalTemplate"
+  [nzPageSizeOptions]="pageSizeOptions"
+  nzShowSizeChanger
+  (nzPageIndexChange)="onPageIndexChange($event)"
+  (nzPageSizeChange)="onPageSizeChange($event)"
+></nz-pagination>
+<ng-template #totalTemplate let-total>
+  <span class="text-sm font-bold">
+    {{total}} Results
+  </span>
+</ng-template>

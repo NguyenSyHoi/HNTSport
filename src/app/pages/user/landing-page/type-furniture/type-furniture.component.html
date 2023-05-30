@@ -1,0 +1,25 @@
+<ul class="furniture">
+  <li *ngFor="let item of listFurniture" class="item-furniture">
+   <span [routerLink]="item.routerLink">
+     {{ item.title }}
+   </span>
+    <ng-container *ngIf="item.submenu.length > 0">
+      <div class="wrap mt-5">
+        <div class="grid grid-cols-1 gap-36  menu-sub text-left ">
+          <span *ngFor="let sub of item.submenu" >
+            <span class="font-semibold">
+              {{ sub.title_sub }}
+            </span>
+            <ul class="mt-4">
+              <li *ngFor="let child of sub.child">
+                <span class="sub-item">
+                  {{ child.name }}
+                </span>
+              </li>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </li>
+</ul>

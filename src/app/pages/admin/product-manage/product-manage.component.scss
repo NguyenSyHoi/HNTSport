@@ -1,0 +1,11 @@
+.resize-arrow {
+  cursor: col-resize;
+  padding: 0 5px;
+}
+// th::after{
+//   content: "";
+
+// }
+th{
+  user-select: none;
+}

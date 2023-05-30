@@ -1,0 +1,64 @@
+.tag-new {
+  @apply py-1 px-2 font-bold;
+  color: white;
+  background: #bda7b5;
+}
+
+.action {
+  background: #fafafa;
+  padding: 24px;
+  @apply mt-2 grid grid-cols-4 gap-4;
+}
+
+.wishlist {
+  @apply flex justify-center items-center mt-4 pb-4 col-span-4 mt-3;
+  border-bottom: 1px solid #eaeaea;
+}
+
+::ng-deep {
+  .product-similar {
+    .ant-collapse-header {
+      padding-left: 0 !important;
+    }
+  }
+}
+
+.btn-quantity-minus {
+  cursor: pointer;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn-quantity-plus {
+  cursor: pointer;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.input-quantity {
+  width: 80px;
+  border: 2px solid #ccc;
+  text-align: center;
+}
+
+.price-custom {
+  font-size: 28px;
+  color: #ed1c24;
+  font-weight: 700;
+}
+
+.price-cancel {
+  text-decoration: line-through;
+  text-decoration-color: #ed1c24;
+  margin-right: 20px;
+  font-weight: 500!important;
+}
+.unit-money{
+  text-decoration: underline;
+}
