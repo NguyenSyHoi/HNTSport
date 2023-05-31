@@ -1,8 +1,8 @@
 <div nz-row nz nzAlign="middle">
-  <div class="logo" nz-col nzSpan="6">
-    <img  src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset="" />
+  <div class="logo" nz-col nzSpan="6" (click)="home()">
+    <img src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset="" />
   </div>
-  <div nz-col nzSpan="12">
+  <div nz-col nzSpan="10">
     <nz-input-group [nzSuffix]="suffixIconSearch">
       <input type="text" nz-input placeholder="Search" />
     </nz-input-group>
@@ -10,7 +10,7 @@
       <span nz-icon nzType="search"></span>
     </ng-template>
   </div>
-  <div nz-col nzSpan="6">
+  <div nz-col nzSpan="8">
     <div class="action">
       <div class="wishlist">
         <span nz-icon nzType="heart" nzTheme="outline" class="mr-2"></span>
