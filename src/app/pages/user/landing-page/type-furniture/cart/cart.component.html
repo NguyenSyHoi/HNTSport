@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Danh sách sản phẩm</h2>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Tên sản phẩm</th>
+      <th>Hình ảnh</th>
+      <th>Giá</th>
+      <th>Số lượng</th>
+      <th>Thành tiền</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of listProduct">
+      <td>{{ product.name }}</td>
+      <td><img [src]="product.image" [alt]="product.name" width="50"></td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+      <td>{{ product.price * product.quantity }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

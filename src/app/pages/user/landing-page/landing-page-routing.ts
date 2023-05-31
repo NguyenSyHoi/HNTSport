@@ -5,6 +5,7 @@ import { RegisterComponent } from "./auth/register/register.component";
 import { LandingPageComponent } from "./landing-page.component";
 import { DetailFunitureComponent } from "./type-furniture/detail-funiture/detail-funiture.component";
 import { NewFunitureComponent } from "./type-furniture/new-funiture/new-funiture.component";
+import {CartComponent} from "./type-furniture/cart/cart.component";
 export const routes: Route[] = [
   {
     path: '',
@@ -25,6 +26,10 @@ export const routes: Route[] = [
       {
         path: 'detail',
         component: DetailFunitureComponent
+      },
+      {
+        path: 'cart',
+        component: CartComponent
       }
     ]
   }

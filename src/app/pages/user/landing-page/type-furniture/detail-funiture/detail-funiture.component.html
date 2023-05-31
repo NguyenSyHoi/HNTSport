@@ -25,7 +25,7 @@
             <input type="text" class="input-quantity" [(ngModel)]="quantity">
             <span nz-icon nzType="plus" nzTheme="outline" class="mr-2 btn-quantity-plus" style="font-size: 35px" (click)="plus()"> </span>
         </div>
-        <button class="col-span-2 btn-submit">Thêm vào giỏ hàng</button>
+        <button (click)="addToCard(detailProduct.dataDetail.value)" class="col-span-2 btn-submit">Thêm vào giỏ hàng</button>
       </div>
       <div class="border-bottom-common pb-4 pt-4">
         <ul class="leading-8">

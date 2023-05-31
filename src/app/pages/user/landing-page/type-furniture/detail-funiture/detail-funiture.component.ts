@@ -36,10 +36,13 @@ export class DetailFunitureComponent implements OnInit {
     }
   }
 
+  addToCard(item: any){
+    console.log(item);
+  }
+
   getDataDetail(){
     return this.detailProduct.getDetailProduct().subscribe((res: any) => {
       this.detailProduct.dataDetail.next(res.data[0]);
-      console.log(this.detailProduct.dataDetail.value);
     })
   }
 }

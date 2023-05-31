@@ -16,6 +16,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
   login(){
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
+  }
+  cart(){
+    this.router.navigate(['/cart']);
   }
 }

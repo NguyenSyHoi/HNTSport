@@ -8,6 +8,7 @@ import {
   TranslocoModule
 } from '@ngneat/transloco';
 import { Injectable, isDevMode, NgModule } from '@angular/core';
+import { CartComponent } from './pages/user/landing-page/type-furniture/cart/cart.component';
 
 
 @Injectable({ providedIn: 'root' })
@@ -33,6 +34,8 @@ export class TranslocoHttpLoader implements TranslocoLoader {
       })
     },
     { provide: TRANSLOCO_LOADER, useClass: TranslocoHttpLoader }
+  ],
+  declarations: [
   ]
 })
 export class TranslocoRootModule {}
