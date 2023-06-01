@@ -1,10 +1,9 @@
-<div class="title">Có gì mới tại HNT Sport</div>
 <div class="new">
   <span class="text-2xl title-lg">CÓ GÌ MỚI TẠI HNT SPORT</span>
 </div>
 <div class="banner">
   <ng-container *ngFor="let item of listCard" >
-    <div class="card cursor-pointer">
+    <div class="card cursor-pointer" (click)="showProductsByCategory(item)">
       <div class="card-img">
         <img [src]="item.image" [alt]="item.title" />
       </div>

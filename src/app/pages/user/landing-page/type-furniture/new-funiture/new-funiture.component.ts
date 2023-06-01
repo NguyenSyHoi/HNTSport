@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { listCard } from './data-card';
 import { FunitureModule } from './modules/funiture-module';
+import {NewFunitureService} from "./services/new-funiture-service.service";
 
 @Component({
   selector: 'app-new-funiture',
@@ -12,9 +13,15 @@ import { FunitureModule } from './modules/funiture-module';
 })
 export class NewFunitureComponent implements OnInit {
   listCard = listCard;
-  constructor() { }
+  constructor(
+    public newFunitureService: NewFunitureService
+  ) { }
 
   ngOnInit() {
   }
-
+  showProductsByCategory(item: any){
+    this.newFunitureService.getProductsByCategory(item.type).subscribe(res =>{
+      console.log(res.data);
+    })
+  }
 }

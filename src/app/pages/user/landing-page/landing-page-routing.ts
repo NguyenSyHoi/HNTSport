@@ -6,6 +6,7 @@ import { LandingPageComponent } from "./landing-page.component";
 import { DetailFunitureComponent } from "./type-furniture/detail-funiture/detail-funiture.component";
 import { NewFunitureComponent } from "./type-furniture/new-funiture/new-funiture.component";
 import {CartComponent} from "./type-furniture/cart/cart.component";
+import {GridNewFunitureComponent} from "./type-furniture/new-funiture/grid-new-funiture/grid-new-funiture.component";
 export const routes: Route[] = [
   {
     path: '',
@@ -14,6 +15,10 @@ export const routes: Route[] = [
       {
         path: '',
         component: NewFunitureComponent
+      },
+      {
+        path: 'products',
+        component: GridNewFunitureComponent
       },
       {
         path: 'login',
