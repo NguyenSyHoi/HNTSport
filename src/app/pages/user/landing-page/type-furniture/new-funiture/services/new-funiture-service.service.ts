@@ -75,4 +75,7 @@ export class NewFunitureService {
   getListCategory() {
     return this.http.get<ResponseAPINoContent<Category[]>>(`${this.BASE_URL}/category/getAllCategory`);
   }
+  getProductsByCategory(id: number){
+    return this.http.get<ResponseAPINoContent<CardItem[]>>(`${this.BASE_URL}/productT/getProductByCategory/${id}`)
+  }
 }
