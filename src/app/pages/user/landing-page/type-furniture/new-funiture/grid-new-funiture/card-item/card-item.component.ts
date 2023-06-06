@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { CardItem } from '../../types/card-item';
+import {DetailProductServiceService} from "../../services/detail-product-service.service";
 
 @Component({
   selector: 'app-card-item',
@@ -10,14 +11,21 @@ import { CardItem } from '../../types/card-item';
   standalone: true,
   imports: [CommonModule]
 })
+
 export class CardItemComponent implements OnInit {
-  @Input() listDataCard: CardItem[] = [];
-  constructor(private router:Router) { }
+  listProductDetail = [];
+  constructor(
+    private router:Router,
+    public detailFunitureService: DetailProductServiceService) { }
 
   ngOnInit() {
-    console.log(this.listDataCard);
   }
-  detailItem(item:CardItem){
-    this.router.navigate(['/detail'])
+  detailItem(item: CardItem){
+      this.detailFunitureService.getDetailProduct(item.id).subscribe((res: any) =>{
+        console.log(res.data);
+        this.detailFunitureService.dataDetail.next(res.data[0])
+        console.log(this.detailFunitureService.dataDetail.value);
+      })
+      this.router.navigate(['/detail']);
   }
 }

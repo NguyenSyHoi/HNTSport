@@ -10,13 +10,13 @@
     </div>
     <div class="col-span-1">
       <div class=" mt-2">
-        <h1 style="font-size: 36px; font-weight: 500">{{detailProduct.dataDetail.value.product.productName}}</h1>
-        <p class="text-3xl font-normal font-sans"></p>
+        <h1 style="font-size: 36px; font-weight: 500">{{detailProduct.dataDetail.value.product?.productName}}</h1>
+        <p class="text-3xl font-normal font-sans">{{detailProduct.dataDetail.value.product?.description}}</p>
         <p class="mt-4 price-custom">
           <span class="price-cancel">
-            {{detailProduct.dataDetail.value.product.price + (detailProduct.dataDetail.value.product.price * 0.3)}}<span class="unit-money">đ</span>
+            {{detailProduct.dataDetail.value.product?.price + (detailProduct.dataDetail.value.product?.price * 0.3) | currency: "VND": "symbol"}}<span class="unit-money">đ</span>
           </span>
-          {{detailProduct.dataDetail.value.product.price}}<span class="unit-money">đ</span>
+          {{detailProduct.dataDetail.value.product?.price}}<span class="unit-money">đ</span>
         </p>
       </div>
       <div class="action"  style="display: flex">

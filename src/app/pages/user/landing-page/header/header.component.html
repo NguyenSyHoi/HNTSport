@@ -1,35 +1,33 @@
 <div nz-row nz nzAlign="middle">
-  <div class="logo" nz-col nzSpan="6" (click)="home()">
-    <img src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset="" />
+  <div class="logo cursor-pointer" nz-col nzSpan="6" (click)="home()">
+    <img src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset=""/>
   </div>
-  <div nz-col nzSpan="10">
+  <div nz-col nzSpan="12">
     <nz-input-group [nzSuffix]="suffixIconSearch">
-      <input type="text" nz-input placeholder="Search" />
+      <input type="text" nz-input placeholder="Search"/>
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <span nz-icon nzType="search"></span>
     </ng-template>
   </div>
-  <div nz-col nzSpan="8">
-    <div class="action">
-      <div class="wishlist">
-        <span nz-icon nzType="heart" nzTheme="outline" class="mr-2"></span>
-        {{ "Wishlist" | uppercase }}
-      </div>
+  <div nz-col nzSpan="6">
+    <div class="action font-medium" style="font-size: 18px">
+<!--      <div class="wishlist font">-->
+<!--        <span nz-icon nzType="heart" nzTheme="outline" class="mr-2"></span>-->
+<!--        {{ "Wishlist" | uppercase }}-->
+<!--      </div>-->
 
       <div class="sign-in" (click)="login()">
         <span nz-icon nzType="user" nzTheme="outline" class="mr-2"></span>
         {{ "Sign in" | uppercase }}
       </div>
-      <div class="shopping-card" (click)="cart()">
-        <span
-          nz-icon
-          nzType="shopping-cart"
-          nzTheme="outline"
-          class="mr-2"
-        ></span>
-        MY CART (0)
+      <div class="shopping-card ml-6" (click)="cart()">
+        <nz-badge [nzCount]="detailProduct.totalQuantityProduct.value" style="font-size: 20px">
+          <span nz-icon nzType="shopping-cart" nzTheme="outline" class="mr-2"></span>
+        </nz-badge>
+        <span class="ml-2">MY CART</span>
       </div>
     </div>
   </div>
 </div>
+

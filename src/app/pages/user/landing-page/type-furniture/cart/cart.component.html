@@ -1,31 +1,65 @@
 <div class="container">
   <h2>Danh sách sản phẩm</h2>
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>Tên sản phẩm</th>
-      <th>Hình ảnh</th>
-      <th>Giá</th>
-      <th>Số lượng</th>
-      <th>Thành tiền</th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let product of listProduct">
-      <td>{{ product.name }}</td>
-      <td><img [src]="product.image" [alt]="product.name" width="50"></td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.quantity }}</td>
-      <td>{{ product.price * product.quantity }}</td>
-      <td>
-        <button class="btn btn-sm btn-danger">Xóa</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <div class="text-center">
-    <a href="/" class="btn btn-sm btn-primary">Tiếp tục mua hàng</a>
-    <a href="" class="btn btn-sm btn-danger">Xóa hết giỏ hàng</a>
-  </div>
+  <ng-container *ngIf="detailProduct.carts.value.length > 0; else noProduct">
+    <table class="table table-striped">
+      <thead >
+      <tr class="text-center m-auto">
+        <th>Hình ảnh</th>
+        <th>Tên sản phẩm</th>
+        <th>Size</th>
+        <th>Giá</th>
+        <th>Số lượng</th>
+        <th>Thành tiền</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let cart of detailProduct.carts | async" class="text-center m-auto">
+        <td class="align-middle"><img [src]="cart.image" [alt]="cart.product.productName" class="text-center m-auto" width="120"></td>
+        <td class="align-middle">{{ cart.product.productName }}</td>
+        <td class="align-middle">{{ cart.size }}</td>
+        <td class="align-middle">{{ cart.product.price }}</td>
+
+        <td class="align-middle">
+          <div class="flex justify-content-center">
+            <span nz-icon nzType="minus" nzTheme="outline" class=" btn-quantity-minus" style="font-size: 25px"
+                  (click)="minus(cart)"></span>
+            <input  type="text" nz-input nzSize="large" class="text-center" style="width: 60px" [(ngModel)]="cart.product.quantity_product">
+            <span nz-icon nzType="plus" nzTheme="outline" class=" btn-quantity-plus" style="font-size: 25px"
+                  (click)="plus(cart)"> </span>
+          </div>
+        </td>
+        <td class="align-middle">{{ cart.product.price * cart.product.quantity_product }}</td>
+        <td class="align-middle">
+          <button (click)="deleteProduct(cart)" nz-button nzDanger style="height: auto;">
+            <span class="p-1.5">Xóa</span>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="text-center mt-10">
+      <button (click)="deleteAllCart()" nz-button nzDanger style="height: auto;">
+      <span class="p-1.5">
+              Xóa hết giỏ hàng
+      </span>
+      </button>
+      <button class="ml-8" (click)="goToHome()" nz-button nzType="primary" style="height: auto;">
+      <span class="p-1.5">
+        Tiếp tục mua hàng
+      </span>
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #noProduct>
+    <div class="custom-alert mt-4">Giỏ hàng không có sản phẩm! Vui lòng quay lại trang chủ lựa chọn sản phẩm</div>
+    <div class="text-center mt-8">
+      <button class="ml-8" (click)="goToHome()" nz-button nzType="primary" style="height: auto;">
+      <span class="p-1.5">
+        Tiếp tục mua hàng
+      </span>
+      </button>
+    </div>
+
+  </ng-template>
 </div>

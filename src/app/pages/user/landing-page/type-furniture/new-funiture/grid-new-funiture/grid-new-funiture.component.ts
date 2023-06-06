@@ -15,6 +15,7 @@ import {HttpClient} from "@angular/common/http";
 import { environment } from './../../../../../../../environments/environment.prod';
 import {Form, FormBuilder, FormGroup} from "@angular/forms";
 import {SearchForm} from "../types/search-funiture";
+import {DetailProductServiceService} from "../services/detail-product-service.service";
 
 @Component({
   selector: 'app-grid-new-funiture',
@@ -41,6 +42,7 @@ export class GridNewFunitureComponent implements OnInit {
     private destroy$: DestroyService,
     private http: HttpClient,
     private fb: FormBuilder,
+    public detailFunitureService: DetailProductServiceService
 
 ) { }
   ngOnInit() {
@@ -103,9 +105,13 @@ export class GridNewFunitureComponent implements OnInit {
     }
   }
   getListProduct() {
-    return this.http.get<ResponseAPINoContent<CardItem[]>>('http://localhost:8090/api/productDetails/getAllProductDetails').subscribe((res)=>{{
+    return this.http.get<ResponseAPINoContent<CardItem[]>>('http://localhost:8090/api/productT/getAllProducts').subscribe((res)=>{{
       if(res){
-        this.listDataCard = res.data;
+        if(this.detailFunitureService.isProductsByCategory.value){
+          this.detailFunitureService.listDataCard.value;
+        }else{
+          this.detailFunitureService.listDataCard.next(res.data);
+        }
       }
     }});
   }

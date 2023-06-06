@@ -1,0 +1,26 @@
+.custom-alert {
+  padding: 10px;
+  background-color: #fff2f0;
+  border: 1px solid #ffccc7;
+}
+.input-quantity {
+  width: 80px;
+  border: 2px solid #ccc;
+  text-align: center;
+}
+
+.btn-quantity-minus {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.btn-quantity-plus {
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

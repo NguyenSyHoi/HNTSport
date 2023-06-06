@@ -1,19 +1,15 @@
 export interface CardItem {
   id: number
   image: string | null
-  size: string
-  quantify: string
-  product: {
-    productCode: string
-    productName: string
-    description: string
-    brand: string
-    price: number
-    category: {
-      id: number
-      categoryCode: string
-      categoryName: string
-    }
+  price: number
+  productCode: string
+  productName: string
+  description: string
+  brand: string
+  category: {
+    id: number
+    categoryCode: string
+    categoryName: string
   }
   status: string
   isActive: number
