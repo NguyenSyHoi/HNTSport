@@ -7,7 +7,7 @@
         </h2>
         <p
           *ngFor="let item of item.content"
-          class="title font-medium hover:text-teal-700 hover:underline"
+          class="title font-medium hover:text-teal-700 hover:underline cursor-pointer"
         >
           {{ item.label | uppercase }}
         </p>
@@ -20,24 +20,24 @@
         </h2>
         <p
           *ngFor="let item of item.content"
-          class="title font-medium hover:text-teal-700 hover:underline"
+          class="title font-medium hover:text-teal-700 hover:underline cursor-pointer"
         >
           {{ item.label | uppercase }}
         </p>
       </ng-container>
     </div>
     <div class="col-span-1">
-      <h2 class="font-bold text-sm pb-5">TRADE PROGRAM</h2>
-      <span
-        >Join our <a>Trade Program</a> for access to trade pricing and
-        benefits.</span
-      >
-      <ng-container *ngFor="let item of dataCol3">
-        <h2 class="font-bold text-sm pb-5 pt-5">
-          {{ item.title }}
-        </h2>
-        <span>{{ item.content }}</span>
-      </ng-container>
+<!--      <h2 class="font-bold text-sm pb-5">TRADE PROGRAM</h2>-->
+<!--      <span-->
+<!--        >Join our <a>Trade Program</a> for access to trade pricing and-->
+<!--        benefits.</span-->
+<!--      >-->
+<!--      <ng-container *ngFor="let item of dataCol3">-->
+<!--        <h2 class="font-bold text-sm pb-5 pt-5">-->
+<!--          {{ item.title }}-->
+<!--        </h2>-->
+<!--        <span>{{ item.content }}</span>-->
+<!--      </ng-container>-->
       <div class="email mt-12">
         <nz-input-group [nzSuffix]="suffixIconSearch">
           <input type="text" nz-input placeholder="Enter your email address" />
@@ -52,24 +52,15 @@
             nz-icon
             [nzType]="item.type"
             nzTheme="outline"
-            class="mr-3 text-lg"
+            class="mr-3 text-2xl cursor-pointer"
           ></span>
         </ng-container>
       </div>
     </div>
   </div>
-  <div class="info py-6">
-    <div class="grid grid-cols-3 gap-4">
-      <div class="col-span-1">
-        <span class="title">© 2003-2022 CMCFUNITURE · San Francisco, CA</span>
+  <div class="info py-3">
+      <div class="text-center">
+        <span class="title">© 2022-2023 HNTSPORT · Viet Nam, VN</span>
       </div>
-      <div class="col-span-2">
-        <ul class="flex footer-right">
-          <ng-container *ngFor="let item of dataFooter">
-            <li class="pl-2 pr-2 title underline underline-offset-1">{{ item.label }}</li>
-          </ng-container>
-        </ul>
-      </div>
-    </div>
   </div>
 </div>

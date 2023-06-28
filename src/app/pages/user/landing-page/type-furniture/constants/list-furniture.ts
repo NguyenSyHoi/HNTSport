@@ -6,33 +6,26 @@ export const ListFurniture = [
     ]
   },
   {
-    title: 'XEM SHOP',
-    submenu: [
-    ]
-  },
-  {
     title: 'SHOP',
     submenu: [
       {
         title_sub: 'Trang phục',
         child: [
-          {code:'trang_phuc_the_thao',name:'Trang phục thể thao'},
-          {code:'trang_phuc_da_bong',name:'Trang phục đá bóng'},
+          {code:'trang_phuc_the_thao',name:'Trang phục thể thao', id: 4},
+          {code:'trang_phuc_da_bong',name:'Trang phục đá bóng', id: 1},
         ]
       },
       {
         title_sub: 'Giày',
         child: [
-          {code:'giay_the_thao',name:'Giày thể thao'},
-          {code:'giay_bong_da',name:'Giày bóng đá'},
+          {code:'giay_the_thao',name:'Giày thể thao', id: 5},
+          {code:'giay_bong_da',name:'Giày bóng đá', id: 3},
         ]
       },
       {
         title_sub: 'Phụ kiện thể thao',
         child: [
-          {code:'ball',name:'Bóng'},
-          {code:'balo',name:'Balo / Túi'},
-          {code:'sock',name:'Tất / Vớ'},
+          {code:'pktt',name:'Bóng, Balo / Túi, Tất / Vớ', id: 6},
         ]
       },
     ]
@@ -57,24 +50,19 @@ export const ListFurniture = [
     submenu: [
     ]
   },
-  {
-    title: 'XEM THÊM',
-    submenu: [
-    ]
-  },
+  // {
+  //   title: 'XEM THÊM',
+  //   submenu: [
+  //     {
+  //       title_sub: 'Xem thêm',
+  //       child: [
+  //         {code: 'gioi_thieu', name: 'Giới thiệu'},
+  //         {code: 'huong_dan_chon_size', name: 'Hướng dẫn chọn size'},
+  //         {code: 'huong_dan_mua_hang', name: 'Hướng dẫn mua hàng'},
+  //         {code: 'huong_dan_thanh_toan', name: 'Hướng dẫn thanh toán'},
+  //         {code: 'chinh_sach_bao_mat', name: 'Chính sách bảo mật'},
+  //         ]
+  //     }
+  //   ]
+  // },
 ];
-
-// {
-//   title_sub: '' +
-//   'Xem thêm',
-//     child: [
-//   {code:'bai_viet',name:'Bài viết'},
-//   {code:'gioi_thieu',name:'Giới thiệu'},
-//   {code:'huong_dan_chon_size',name:'Hướng dẫn chọn size'},
-//   {code:'huong_dan_mua_hang_&_thanh_toan',name:'Hướng dẫn mua hàng & thanh toán'},
-//   {code:'huong_dan_chon_size',name:'Hướng dẫn chọn size'},
-//   {code:'huong_dan_chon_size',name:'Hướng dẫn chọn size'},
-//   {code:'chinh_sach_bao_mat',name:'Chính sách bảo mật'},
-//   {code:'cau_hoi_thuong_gap',name:'Câu hỏi thường gặp'},
-// ]
-// },

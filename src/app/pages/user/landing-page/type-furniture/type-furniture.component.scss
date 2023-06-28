@@ -7,8 +7,9 @@
   }
   .wrap {
     @apply w-full absolute;
-    box-shadow: 0 2px 4px #0000001a;
+    box-shadow: 0 10px 15px #0000001a;
     left: 0;
+    top: 25px;
     background: #fff;
   }
   .wrap::before {
@@ -17,8 +18,7 @@
     width: 100%;
     left: 0;
     right: 0;
-    top: -18px;
-    height: 24px;
+    top: 30px;
     display: none;
   }
   .sub-item {

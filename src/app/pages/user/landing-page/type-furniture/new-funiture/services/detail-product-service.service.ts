@@ -14,6 +14,9 @@ export class DetailProductServiceService {
   dataDetail = new BehaviorSubject<any>([]);
   listDataCard = new BehaviorSubject<CardItem[]>([]);
   carts = new BehaviorSubject<ProductDetail[]>([]);
+  intoMoney: number = 0;
+  transportFee: number = 30000;
+  freeShip: number = 0;
   totalQuantityProduct = new BehaviorSubject<number>(0);
   constructor(private http: HttpClient) {
 

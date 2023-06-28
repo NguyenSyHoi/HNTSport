@@ -1,0 +1,174 @@
+<div class="container">
+  <div class="grid grid-cols-2 gap-2 card mt-4 border-none">
+    <div class="grid-cols-2 mr-3">
+      <div class="">
+        <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Thông tin thanh toán</h1>
+      </div>
+      <div>
+        <label for="hoten" class="font-bold my-2">Họ và tên&nbsp;<span style="color: red">*</span></label>
+        <input name="hoten" id="hoten" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập họ và tên của bạn">
+      </div>
+      <div>
+        <label for="sdt" class="font-bold my-2">Số điện thoại&nbsp;<span style="color: red">*</span></label>
+        <input name="sdt" id="sdt" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập số điện thoại của bạn">
+      </div>
+      <div>
+        <label for="diachi" class="font-bold my-2">Địa chỉ&nbsp;<span style="color: red">*</span></label>
+        <input name="diachi" id="diachi" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập địa chỉ nhận hàng của bạn">
+      </div>
+      <div>
+        <label for="diaChiEmail" class="font-bold my-2">Địa chỉ email (Tùy chọn)</label>
+        <input name="diaChiEmail" id="diaChiEmail" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập địa chỉ nhận hàng của bạn">
+      </div>
+    </div>
+
+    <div class="grid-cols-2 ml-3">
+      <nz-collapse nzSize="large">
+        <nz-collapse-panel [nzHeader]="'Giao hàng tới địa chỉ khác?'">
+          <div>
+            <label for="hotenOrther" class="font-bold my-2">Họ và tên người nhận&nbsp;<span style="color: red">*</span></label>
+            <input name="hotenOrther" id="hotenOrther" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập họ và tên người nhận">
+          </div>
+          <div>
+            <label for="sdtOrther" class="font-bold my-2">Số điện thoại người nhận&nbsp;<span
+              style="color: red">*</span></label>
+            <input name="sdtOrther" id="sdtOrther" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập số điện thoại của người nhận">
+          </div>
+
+          <div>
+            <label for="diachiOrthor" class="font-bold my-2">Địa chỉ người nhận&nbsp;<span
+              style="color: red">*</span></label>
+            <input name="diachiOrthor" id="diachiOrthor" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập địa chỉ nhận hàng của người nhận">
+          </div>
+        </nz-collapse-panel>
+      </nz-collapse>
+      <div>
+        <label for="ghichu" class="font-bold my-2">Ghi chú đơn hàng (Tùy chọn)</label>
+        <textarea id="ghichu" name="ghichu" nz-input class="mb-4" rows="3"
+                  placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn.">
+      </textarea>
+      </div>
+      <!--    <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Cộng giỏ hàng</h1>-->
+      <!--    <div class="mt-2 mb-2" style="font-size: 24px ">Tạm tính:-->
+      <!--      <span class="ml-3 accent-red-600">{{intoMoney | currency: 'VND'}}</span>-->
+      <!--    </div>-->
+      <!--    <hr>-->
+      <!--    <div class="mt-2 mb-2 flex -no-wrap" style="font-size: 24px">-->
+      <!--      <span>Địa chỉ giao hàng:</span>-->
+      <!--      <span style="width: 62%; margin-left: 25px;">-->
+      <!--            <input type="text" nz-input nzSize="large"-->
+      <!--                   placeholder="240 Tân Mai, Hoàng Mai, Hà Nội">-->
+      <!--          </span>-->
+
+      <!--    </div>-->
+      <!--    <hr>-->
+      <!--    <div class="mt-2 mb-2" style="font-size: 24px">Tổng:-->
+      <!--      <span class="ml-3">-->
+      <!--            {{intoMoney | currency: 'VND'}}-->
+      <!--          </span>-->
+      <!--    </div>-->
+      <!--    <hr>-->
+      <!--    <div class="full-width pt-3">-->
+      <!--      <button (click)="makePayment()" class="col-span-2 btn-submit">Tiến hành thanh toán >></button>-->
+      <!--    </div>-->
+    </div>
+  </div>
+  <div class="card p-5">
+    <h1 class="font-bold" style="font-size: 30px">Đơn hàng của bạn</h1>
+    <div>
+      <ng-container *ngIf="detailProduct.carts.value.length > 0; else noProduct">
+        <table class="table table-striped">
+          <thead>
+          <tr class="text-center m-auto font-25">
+            <th>Hình ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Size</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let cart of detailProduct.carts | async" class="text-center m-auto">
+            <td class="align-middle font-20"><img [src]="cart.image" [alt]="cart.product.productName"
+                                                  class="text-center m-auto"
+                                                  width="120"></td>
+            <td class="align-middle font-20">{{ cart.product.productName }}</td>
+            <td class="align-middle font-20">{{ cart.size }}</td>
+            <td class="align-middle font-20">{{ cart.product.price | currency: 'VND' }}</td>
+
+            <td class="align-middle font-20">
+              <div class="flex justify-content-center">
+                {{cart.product.quantity_product}}
+              </div>
+            </td>
+            <td
+              class="align-middle font-20">{{ cart.product.price * cart.product.quantity_product | currency: 'VND'}}</td>
+          </tr>
+          </tbody>
+        </table>
+        <div class="flex justify-content-between font-bold font-25">
+          <div>Tạm tính:</div>
+          <div>{{detailProduct.intoMoney | currency:'VND'}}</div>
+        </div>
+        <div class="flex justify-content-between font-bold font-25 py-4">
+          <ng-container *ngIf="detailProduct.intoMoney < 1000000; else freeShip">
+            <div>Phí vận chuyển:</div>
+            <div>{{detailProduct.transportFee | currency: 'VND'}}</div>
+          </ng-container>
+          <ng-template #freeShip>
+            <div>Phí vận chuyển:</div>
+            <div>{{detailProduct.freeShip | currency: 'VND'}}</div>
+          </ng-template>
+        </div>
+        <div class="flex justify-content-between font-bold font-25">
+          <div class="justify-items-start">Tổng thanh toán:</div>
+          <div class="justify-items-end">{{detailProduct.intoMoney < 1000000 ?
+            detailProduct.intoMoney + detailProduct.intoMoney + detailProduct.transportFee :
+            detailProduct.intoMoney + detailProduct.freeShip| currency:'VND'}}</div>
+        </div>
+      </ng-container>
+      <ng-template #noProduct>
+        <div class="custom-alert mt-4">Chưa có sản phẩm để thanh toán! Vui lòng quay lại trang chủ lựa chọn sản phẩm
+        </div>
+        <div class="text-center mt-8">
+          <button class="ml-8" (click)="goToHome()" nz-button nzType="primary" style="height: auto;">
+      <span class="p-1.5" style="font-size: 20px">
+        Tiếp tục mua hàng
+      </span>
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <div class="card p-5 mt-4">
+    <nz-radio-group [(ngModel)]="paymentCash">
+      <div>
+        <label nz-radio-button [nzValue]="paymentCash">Thanh toán bằng tiền mặt</label>
+        <ng-container *ngIf="paymentCash">
+          <div>
+            Trả tiền mặt khi giao hàng
+          </div>
+        </ng-container>
+      </div>
+      <div>
+        <label nz-radio-button [nzValue]="false">Thanh toán bằng ví VNPay</label>
+        <ng-container *ngIf="!paymentCash">
+          <button class="ml-8" (click)="VNPay()" nz-button nzType="primary" style="height: auto;">
+            <div class="p-1.5" style="font-size: 20px">
+              Thanh toán bằng ví VNPay
+            </div>
+          </button>
+        </ng-container>
+      </div>
+    </nz-radio-group>
+  </div>
+</div>
+

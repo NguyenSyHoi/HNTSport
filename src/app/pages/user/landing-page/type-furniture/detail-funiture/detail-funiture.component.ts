@@ -4,12 +4,13 @@ import {DetailProductServiceService} from "../new-funiture/services/detail-produ
 import {FormsModule} from "@angular/forms";
 import {ProductDetail} from "../new-funiture/types/product-detail";
 import Swal from "sweetalert2";
+import {RouterLink} from "@angular/router";
 @Component({
   selector: 'app-detail-funiture',
   templateUrl: './detail-funiture.component.html',
   styleUrls: ['./detail-funiture.component.scss'],
   standalone: true,
-  imports: [DetailFunitureModule, FormsModule]
+  imports: [DetailFunitureModule, FormsModule, RouterLink]
 })
 export class DetailFunitureComponent implements OnInit {
   listProductSimilar = [

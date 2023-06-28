@@ -7,6 +7,7 @@ import { DetailFunitureComponent } from "./type-furniture/detail-funiture/detail
 import { NewFunitureComponent } from "./type-furniture/new-funiture/new-funiture.component";
 import {CartComponent} from "./type-furniture/cart/cart.component";
 import {GridNewFunitureComponent} from "./type-furniture/new-funiture/grid-new-funiture/grid-new-funiture.component";
+import {PaymentComponent} from "./type-furniture/payment/payment.component";
 export const routes: Route[] = [
   {
     path: '',
@@ -35,6 +36,10 @@ export const routes: Route[] = [
       {
         path: 'cart',
         component: CartComponent
+      },
+      {
+        path: 'payment',
+        component: PaymentComponent
       }
     ]
   }

@@ -1,14 +1,10 @@
-export const DataCol1 = [
+export const InfomationShop = [
   {
-    title: 'HELP & SUPPORT',
+    title: 'HNTSport',
     content:[
-      {key:'contact',label:'contact us'},
-      {key:'ordering',label:'ordering'},
-      {key:'shipping',label:'shipping'},
-      {key:'cancel',label:'cancels & returns'},
-      {key:'discount',label:'discount & exclusions'},
-      {key:'gif',label:'gift cards'},
-      {key:'shopping',label:'secure shopping'},
+      {key:'address',label:'Địa chỉ: 240 Tân Mai, Hoàng Mai, Hà Nội'},
+      {key:'phoneNumber',label:'(+84) 0356 820 031'},
+      {key:'email',label:'nguyensyhoi@gmail.com'},
     ]
   }
 ]

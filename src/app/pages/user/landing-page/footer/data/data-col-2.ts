@@ -1,14 +1,12 @@
-export const DataCol2 = [
+export const serviceCustomer = [
   {
-    title: 'ABOUT CMCFUNITURE',
+    title: 'Dịch vụ khách hàng',
     content:[
-      {key:'about',label:'about us'},
-      {key:'trade',label:'trade program'},
-      {key:'sustainability',label:'sustainability'},
-      {key:'discount',label:'testimonials'},
-      {key:'press',label:'press'},
-      {key:'blog',label:'design blog'},
-      {key:'accessibility',label:'accessibility'},
+      {key: 'gioi_thieu', label: 'Giới thiệu'},
+      {key: 'huong_dan_chon_size', label: 'Hướng dẫn chọn size'},
+      {key: 'huong_dan_mua_hang', label: 'Hướng dẫn mua hàng'},
+      {key: 'huong_dan_thanh_toan', label: 'Hướng dẫn thanh toán'},
+      {key: 'chinh_sach_bao_mat', label: 'Chính sách bảo mật'},
     ]
   }
 ]

@@ -21,6 +21,7 @@ export class CartComponent implements OnInit{
     public detailProduct: DetailProductServiceService) {
   }
   ngOnInit(): void {
+    this.totalPrice();
   }
   minus(item: ProductDetail){
     item.product.quantity_product--;
@@ -30,6 +31,7 @@ export class CartComponent implements OnInit{
       }
     })
     this.detailProduct.updateTotalProduct();
+    this.detailProduct.intoMoney -= item.product.price;
   }
   plus(item: ProductDetail){
     item.product.quantity_product++;
@@ -39,6 +41,7 @@ export class CartComponent implements OnInit{
       }
     })
     this.detailProduct.updateTotalProduct();
+    this.detailProduct.intoMoney += item.product.price;
   }
 
   goToHome(){
@@ -74,6 +77,7 @@ export class CartComponent implements OnInit{
       }
     }
     this.detailProduct.carts.next(this.listProductsCart);
+    this.totalPrice();
     this.detailProduct.updateTotalProduct();
     Swal.fire(
       {
@@ -81,13 +85,21 @@ export class CartComponent implements OnInit{
         icon: 'success'
       }
     );
-
   }
 
   deleteAllCart(){
     this.detailProduct.carts.next([]);
     this.detailProduct.totalQuantityProduct.next(0);
+    this.detailProduct.intoMoney = 0;
     this.router.navigate(['/cart']);
     this.detailProduct.updateTotalProduct();
+  }
+  totalPrice(){
+    for(let i = 0; i< this.detailProduct.carts.value.length; i++){
+      this.detailProduct.intoMoney += this.detailProduct.carts.value[i].product.price * this.detailProduct.carts.value[i].product.quantity_product;
+    }
+  }
+  makePayment(){
+    this.router.navigate(['/payment'])
   }
 }

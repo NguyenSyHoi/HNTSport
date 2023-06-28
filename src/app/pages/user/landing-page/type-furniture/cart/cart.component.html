@@ -2,7 +2,7 @@
   <h2>Danh sách sản phẩm</h2>
   <ng-container *ngIf="detailProduct.carts.value.length > 0; else noProduct">
     <table class="table table-striped">
-      <thead >
+      <thead>
       <tr class="text-center m-auto">
         <th>Hình ảnh</th>
         <th>Tên sản phẩm</th>
@@ -15,21 +15,23 @@
       </thead>
       <tbody>
       <tr *ngFor="let cart of detailProduct.carts | async" class="text-center m-auto">
-        <td class="align-middle"><img [src]="cart.image" [alt]="cart.product.productName" class="text-center m-auto" width="120"></td>
+        <td class="align-middle"><img [src]="cart.image" [alt]="cart.product.productName" class="text-center m-auto"
+                                      width="120"></td>
         <td class="align-middle">{{ cart.product.productName }}</td>
         <td class="align-middle">{{ cart.size }}</td>
-        <td class="align-middle">{{ cart.product.price }}</td>
+        <td class="align-middle">{{ cart.product.price | currency: 'VND' }}</td>
 
         <td class="align-middle">
           <div class="flex justify-content-center">
             <span nz-icon nzType="minus" nzTheme="outline" class=" btn-quantity-minus" style="font-size: 25px"
                   (click)="minus(cart)"></span>
-            <input  type="text" nz-input nzSize="large" class="text-center" style="width: 60px" [(ngModel)]="cart.product.quantity_product">
+            <input type="text" nz-input nzSize="large" class="text-center" style="width: 60px"
+                   [(ngModel)]="cart.product.quantity_product">
             <span nz-icon nzType="plus" nzTheme="outline" class=" btn-quantity-plus" style="font-size: 25px"
                   (click)="plus(cart)"> </span>
           </div>
         </td>
-        <td class="align-middle">{{ cart.product.price * cart.product.quantity_product }}</td>
+        <td class="align-middle">{{ cart.product.price * cart.product.quantity_product | currency: 'VND'}}</td>
         <td class="align-middle">
           <button (click)="deleteProduct(cart)" nz-button nzDanger style="height: auto;">
             <span class="p-1.5">Xóa</span>
@@ -40,26 +42,53 @@
     </table>
     <div class="text-center mt-10">
       <button (click)="deleteAllCart()" nz-button nzDanger style="height: auto;">
-      <span class="p-1.5">
-              Xóa hết giỏ hàng
+      <span class="p-1.5" style="font-size: 20px">
+        Xóa hết giỏ hàng
       </span>
       </button>
       <button class="ml-8" (click)="goToHome()" nz-button nzType="primary" style="height: auto;">
-      <span class="p-1.5">
+      <span class="p-1.5" style="font-size: 20px">
         Tiếp tục mua hàng
       </span>
       </button>
+    </div>
+    <div class="grid grid-cols-2 gap-2 card mt-4 border-none">
+      <div class="grid-cols-2"></div>
+      <div class="grid-cols-2">
+        <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Cộng giỏ hàng</h1>
+        <div class="mt-2 mb-2" style="font-size: 24px ">Tạm tính:
+          <span class="ml-3 accent-red-600">{{detailProduct.intoMoney | currency: 'VND'}}</span>
+        </div>
+        <hr>
+        <div class="mt-2 mb-2 flex -no-wrap" style="font-size: 24px">
+          <span>Địa chỉ giao hàng:</span>
+          <span style="width: 62%; margin-left: 25px;">
+            <input type="text" nz-input nzSize="large"
+                   placeholder="240 Tân Mai, Hoàng Mai, Hà Nội">
+          </span>
+
+        </div>
+        <hr>
+        <div class="mt-2 mb-2" style="font-size: 24px">Tổng:
+          <span class="ml-3">
+            {{detailProduct.intoMoney | currency: 'VND'}}
+          </span>
+        </div>
+        <hr>
+        <div class="full-width pt-3">
+          <button (click)="makePayment()" class="col-span-2 btn-submit">Tiến hành thanh toán >></button>
+        </div>
+      </div>
     </div>
   </ng-container>
   <ng-template #noProduct>
     <div class="custom-alert mt-4">Giỏ hàng không có sản phẩm! Vui lòng quay lại trang chủ lựa chọn sản phẩm</div>
     <div class="text-center mt-8">
       <button class="ml-8" (click)="goToHome()" nz-button nzType="primary" style="height: auto;">
-      <span class="p-1.5">
+      <span class="p-1.5" style="font-size: 20px">
         Tiếp tục mua hàng
       </span>
       </button>
     </div>
-
   </ng-template>
 </div>

@@ -1,19 +1,19 @@
 
   <div class="grid grid-cols-4 gap-3">
     <ng-container *ngFor="let item of detailFunitureService.listDataCard | async">
-      <div class="card" (click)="detailItem(item)">
-        <div class="card-img">
+      <div class="card h-full" (click)="detailItem(item)">
+        <div class="card-img image-container">
           <img [src]="item.image" alt="" srcset="" class="w-full"/>
-          <div class="image-overlay">
-            <img [src]="item.image" alt="" class="w-full">
-          </div>
+<!--          <div class="image-overlay">-->
+<!--            <img [src]="item.image" alt="" class="w-full">-->
+<!--          </div>-->
         </div>
         <div class="content">
           <div class="title-card">{{ item.productName }}</div>
           <div class="name-card">{{ item.description }}</div>
           <div class="content-price title-card">
             <span>
-              {{ item.price | currency :'VND':'symbol':'1.0-0'}}
+              {{ item.price | currency : 'VND'}}
             </span>
           </div>
         </div>
