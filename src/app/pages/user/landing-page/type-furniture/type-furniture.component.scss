@@ -1,24 +1,26 @@
 .furniture {
   @apply flex justify-around mt-2 mb-2;
+  position: relative;
 }
 .item-furniture {
   & > span {
     @apply font-semibold hover:cursor-pointer hover:underline hover:text-teal-700 pr-7 pl-7 pt-2 pb-2;
   }
   .wrap {
-    @apply w-full absolute;
+    @apply w-3/6 absolute;
     box-shadow: 0 10px 15px #0000001a;
-    left: 0;
+    left: 26%;
     top: 25px;
     background: #fff;
   }
   .wrap::before {
     content: "";
     position: absolute;
-    width: 100%;
+    width: auto;
     left: 0;
     right: 0;
-    top: 30px;
+    height: 40px;
+    top: -15px;
     display: none;
   }
   .sub-item {
@@ -35,8 +37,8 @@
   }
   .menu-sub {
     animation: fadeIn 1s;
-    display: flex;
-    max-width: 1200px;
+    display: block;
+    max-width: 50%;
     margin: auto;
     z-index: 999;
 

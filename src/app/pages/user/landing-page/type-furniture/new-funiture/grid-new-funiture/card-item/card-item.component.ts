@@ -22,7 +22,6 @@ export class CardItemComponent implements OnInit {
   }
   detailItem(item: CardItem){
       this.detailFunitureService.getDetailProduct(item.id).subscribe((res: any) =>{
-        console.log(res.data);
         this.detailFunitureService.dataDetail.next(res.data[0])
         console.log(this.detailFunitureService.dataDetail.value);
       })

@@ -2,30 +2,39 @@
   <div class="logo cursor-pointer" nz-col nzSpan="6" (click)="home()">
     <img src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset=""/>
   </div>
-  <div nz-col nzSpan="12">
+  <div nz-col nzSpan="8">
     <nz-input-group [nzSuffix]="suffixIconSearch" style="font-size: 20px;">
-      <input type="text" nz-input class="p-2" placeholder="Search"/>
+      <input [(ngModel)]="contentSearch" type="text" nz-input class="p-2" placeholder="Search"/>
     </nz-input-group>
     <ng-template #suffixIconSearch>
       <span nz-icon nzType="search"></span>
     </ng-template>
-  </div>
-  <div nz-col nzSpan="6">
-    <div class="action font-medium" style="font-size: 18px">
-<!--      <div class="wishlist font">-->
-<!--        <span nz-icon nzType="heart" nzTheme="outline" class="mr-2"></span>-->
-<!--        {{ "Wishlist" | uppercase }}-->
-<!--      </div>-->
 
-      <div class="sign-in" (click)="login()">
-        <span nz-icon nzType="user" nzTheme="outline" class="mr-2"></span>
-        {{ "Sign in" | uppercase }}
+  </div>
+  <div nz-col nzSpan="2">
+    <button class="ml-3" (click)="eSearch()" nz-button nzType="primary" style="height: 46px">
+      <div style="font-size: 16px" class="font-bold" >
+        Tìm kiếm
       </div>
-      <div class="shopping-card ml-6" (click)="cart()">
-        <nz-badge [nzCount]="detailProduct.totalQuantityProduct.value" style="font-size: 20px">
+    </button>
+  </div>
+  <div nz-col nzSpan="7">
+    <div class="action font-medium" style="font-size: 18px">
+      <div class="sign-in" (click)="login()" style="overflow-wrap: anywhere;">
+        <ng-container *ngIf="newFunitureService.isLogin | async ; else logged">
+          <span nz-icon nzType="user" nzTheme="outline" style="overflow-wrap: anywhere; font-size: 27px; margin-left: 20px"></span>
+          {{ newFunitureService.userName.value}}
+        </ng-container>
+        <ng-template #logged>
+          <span nz-icon nzType="user" nzTheme="outline" class="mr-2 " style="font-size: 27px"></span>
+          {{ "Đăng nhập" | uppercase }}
+        </ng-template>
+      </div>
+      <div class="shopping-card ml-2" (click)="cart()">
+        <nz-badge [nzCount]="detailProduct.totalQuantityProduct.value" style="font-size: 27px">
           <span nz-icon nzType="shopping-cart" nzTheme="outline" class="mr-2"></span>
         </nz-badge>
-        <span class="ml-2">MY CART</span>
+        <span class="ml-2">GIỎ HÀNG</span>
       </div>
     </div>
   </div>

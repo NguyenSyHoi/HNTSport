@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { CardItem } from '../types/card-item';
 import { BehaviorSubject, catchError, combineLatest, Observable, of, pluck, switchMap, debounceTime, takeUntil, finalize, delay } from 'rxjs';
 import {ProductDetail} from "../types/product-detail";
+import {ResponseAPINoContent} from "../../../../../../common/types/response-api";
 @Injectable({
   providedIn: 'root'
 })
@@ -15,9 +16,12 @@ export class DetailProductServiceService {
   listDataCard = new BehaviorSubject<CardItem[]>([]);
   carts = new BehaviorSubject<ProductDetail[]>([]);
   intoMoney: number = 0;
+  address: string = '';
   transportFee: number = 30000;
   freeShip: number = 0;
+  urlVNPay = new BehaviorSubject<string>('')
   totalQuantityProduct = new BehaviorSubject<number>(0);
+  size = new BehaviorSubject<string>('')
   constructor(private http: HttpClient) {
 
   }
@@ -26,7 +30,11 @@ export class DetailProductServiceService {
   }
   updateTotalProduct(){
     this.totalQuantityProduct.next(this.carts.value.reduce((total, item) => {
-      return total + item.product.quantity_product;
+      return total + item.quantity_product;
+      console.log(this.totalQuantityProduct.value);
     }, 0));
+  }
+  getDetailProductBySize(id: number, size: string){
+    return this.http.get<ResponseAPINoContent<ProductDetail[]>>(`${this.BASE_URL}/productDetails/getBySize/${id}/${size}`);
   }
 }

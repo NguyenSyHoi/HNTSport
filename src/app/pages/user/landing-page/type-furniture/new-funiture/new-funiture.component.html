@@ -1,5 +1,5 @@
 <div class="new">
-  <span class="text-2xl title-lg">CÓ GÌ MỚI TẠI HNT SPORT</span>
+  <span class="text-2xl title-lg font-bold">CÓ GÌ MỚI TẠI HNT SPORT</span>
 </div>
 <div class="banner">
   <ng-container *ngFor="let item of listCard" >
@@ -7,7 +7,7 @@
       <div class="card-img">
         <img [src]="item.image" [alt]="item.title" />
       </div>
-      <div class="card-text mt-3">
+      <div class="card-text mt-3 ml-3 mb-3 font-25">
        <span class="title hover:text-teal-700 hover:underline">
          {{ item.title |uppercase}}
        </span>

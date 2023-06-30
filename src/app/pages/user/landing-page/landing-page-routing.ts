@@ -8,6 +8,9 @@ import { NewFunitureComponent } from "./type-furniture/new-funiture/new-funiture
 import {CartComponent} from "./type-furniture/cart/cart.component";
 import {GridNewFunitureComponent} from "./type-furniture/new-funiture/grid-new-funiture/grid-new-funiture.component";
 import {PaymentComponent} from "./type-furniture/payment/payment.component";
+import {ContactComponent} from "./type-furniture/contact/contact.component";
+import {SelectSizeComponent} from "./type-furniture/select-size/select-size.component";
+import {PrivacyPolicyComponent} from "./type-furniture/privacy-policy/privacy-policy.component";
 export const routes: Route[] = [
   {
     path: '',
@@ -40,6 +43,29 @@ export const routes: Route[] = [
       {
         path: 'payment',
         component: PaymentComponent
+      },
+      {
+        path: 'contact',
+        component: ContactComponent
+      },
+      {
+        path: 'select-size',
+        component: SelectSizeComponent
+      }
+      ,
+      {
+        path: 'purchase',
+        component: SelectSizeComponent
+      }
+      ,
+      {
+        path: 'shopping-guide',
+        component: SelectSizeComponent
+      }
+      ,
+      {
+        path: 'privacy-policy',
+        component: PrivacyPolicyComponent
       }
     ]
   }

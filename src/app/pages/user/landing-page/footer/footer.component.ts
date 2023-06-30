@@ -7,12 +7,13 @@ import { DataCol3 } from './data/data-col-3';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { DataIconSocial } from './data/icon-social';
 import { DataFooter } from './data/data-footer';
+import {RouterLink} from "@angular/router";
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   standalone: true,
-  imports: [CommonModule, NzIconModule, NzInputModule]
+  imports: [CommonModule, NzIconModule, NzInputModule, RouterLink]
 })
 export class FooterComponent implements OnInit {
   dataCol1 = InfomationShop;

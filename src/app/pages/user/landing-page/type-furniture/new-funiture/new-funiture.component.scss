@@ -3,7 +3,7 @@
   border-bottom: 1px solid #eaeaea;
 }
 .banner {
-  @apply grid grid-cols-4 gap-4 mt-9 pb-9;
+  @apply grid grid-cols-4 gap-4;
   border-bottom: 1px solid #eaeaea;
   //card-img
   .card-img {

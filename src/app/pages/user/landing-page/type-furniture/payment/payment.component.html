@@ -2,27 +2,28 @@
   <div class="grid grid-cols-2 gap-2 card mt-4 border-none">
     <div class="grid-cols-2 mr-3">
       <div class="">
-        <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Thông tin thanh toán</h1>
+        <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Thông tin khách hàng</h1>
       </div>
       <div>
-        <label for="hoten" class="font-bold my-2">Họ và tên&nbsp;<span style="color: red">*</span></label>
-        <input name="hoten" id="hoten" type="text" nz-input nzSize="large" class="mb-3"
-               placeholder="Nhập họ và tên của bạn">
+        <label for="name" class="font-bold my-2">Họ và tên&nbsp;<span style="color: red">*</span></label>
+        <input name="name" id="name" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập họ và tên của bạn" [(ngModel)]="queryInfoMe.name">
       </div>
       <div>
-        <label for="sdt" class="font-bold my-2">Số điện thoại&nbsp;<span style="color: red">*</span></label>
-        <input name="sdt" id="sdt" type="text" nz-input nzSize="large" class="mb-3"
-               placeholder="Nhập số điện thoại của bạn">
+        <label for="phoneNumber" class="font-bold my-2">Số điện thoại&nbsp;<span style="color: red">*</span></label>
+        <input name="phoneNumber" id="phoneNumber" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập số điện thoại của bạn" [(ngModel)]="queryInfoMe.phoneNumber">
       </div>
       <div>
-        <label for="diachi" class="font-bold my-2">Địa chỉ&nbsp;<span style="color: red">*</span></label>
-        <input name="diachi" id="diachi" type="text" nz-input nzSize="large" class="mb-3"
-               placeholder="Nhập địa chỉ nhận hàng của bạn">
+        <label for="address" class="font-bold my-2">Địa chỉ&nbsp;<span style="color: red">*</span></label>
+        <input name="address" id="address" type="text" nz-input nzSize="large" class="mb-3"
+               [value]="detailProduct.address"
+               placeholder="Nhập địa chỉ nhận hàng của bạn" [(ngModel)]="queryInfoMe.address">
       </div>
       <div>
-        <label for="diaChiEmail" class="font-bold my-2">Địa chỉ email (Tùy chọn)</label>
-        <input name="diaChiEmail" id="diaChiEmail" type="text" nz-input nzSize="large" class="mb-3"
-               placeholder="Nhập địa chỉ nhận hàng của bạn">
+        <label for="email" class="font-bold my-2">Địa chỉ email (Tùy chọn)</label>
+        <input name="email" id="email" type="text" nz-input nzSize="large" class="mb-3"
+               placeholder="Nhập địa chỉ email của bạn" [(ngModel)]="queryInfoMe.email">
       </div>
     </div>
 
@@ -30,55 +31,42 @@
       <nz-collapse nzSize="large">
         <nz-collapse-panel [nzHeader]="'Giao hàng tới địa chỉ khác?'">
           <div>
-            <label for="hotenOrther" class="font-bold my-2">Họ và tên người nhận&nbsp;<span style="color: red">*</span></label>
-            <input name="hotenOrther" id="hotenOrther" type="text" nz-input nzSize="large" class="mb-3"
-                   placeholder="Nhập họ và tên người nhận">
+            <label for="nameOrther" class="font-bold my-2">Họ và tên người nhận&nbsp;<span
+              style="color: red">*</span></label>
+            <input name="nameOrther" id="nameOrther" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập họ và tên người nhận" [(ngModel)]="queryInfoMe.name">
           </div>
           <div>
-            <label for="sdtOrther" class="font-bold my-2">Số điện thoại người nhận&nbsp;<span
+            <label for="phoneNumberOrther" class="font-bold my-2">Số điện thoại người nhận&nbsp;<span
               style="color: red">*</span></label>
-            <input name="sdtOrther" id="sdtOrther" type="text" nz-input nzSize="large" class="mb-3"
-                   placeholder="Nhập số điện thoại của người nhận">
+            <input name="phoneNumberOrther" id="phoneNumberOrther" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập số điện thoại của người nhận" [(ngModel)]="queryInfoMe.phoneNumber">
           </div>
 
           <div>
-            <label for="diachiOrthor" class="font-bold my-2">Địa chỉ người nhận&nbsp;<span
+            <label for="addressOrther" class="font-bold my-2">Địa chỉ người nhận&nbsp;<span
               style="color: red">*</span></label>
-            <input name="diachiOrthor" id="diachiOrthor" type="text" nz-input nzSize="large" class="mb-3"
-                   placeholder="Nhập địa chỉ nhận hàng của người nhận">
+            <input name="addressOrther" id="addressOrther" type="text" nz-input nzSize="large" class="mb-3"
+                   placeholder="Nhập địa chỉ nhận hàng của người nhận" [(ngModel)]="queryInfoMe.address">
           </div>
         </nz-collapse-panel>
       </nz-collapse>
       <div>
-        <label for="ghichu" class="font-bold my-2">Ghi chú đơn hàng (Tùy chọn)</label>
-        <textarea id="ghichu" name="ghichu" nz-input class="mb-4" rows="3"
-                  placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn.">
+        <label for="noteOrther" class="font-bold my-2">Ghi chú đơn hàng (Tùy chọn)</label>
+        <textarea id="noteOrther" name="noteOrther" nz-input class="mb-4" rows="3"
+                  placeholder="Ghi chú về đơn hàng, ví dụ: thời gian hay chỉ dẫn địa điểm giao hàng chi tiết hơn."
+                  [(ngModel)]="queryInfoMe.note">
       </textarea>
       </div>
-      <!--    <h1 class="font-bold pt-2 pb-2" style="font-size: 30px">Cộng giỏ hàng</h1>-->
-      <!--    <div class="mt-2 mb-2" style="font-size: 24px ">Tạm tính:-->
-      <!--      <span class="ml-3 accent-red-600">{{intoMoney | currency: 'VND'}}</span>-->
-      <!--    </div>-->
-      <!--    <hr>-->
-      <!--    <div class="mt-2 mb-2 flex -no-wrap" style="font-size: 24px">-->
-      <!--      <span>Địa chỉ giao hàng:</span>-->
-      <!--      <span style="width: 62%; margin-left: 25px;">-->
-      <!--            <input type="text" nz-input nzSize="large"-->
-      <!--                   placeholder="240 Tân Mai, Hoàng Mai, Hà Nội">-->
-      <!--          </span>-->
-
-      <!--    </div>-->
-      <!--    <hr>-->
-      <!--    <div class="mt-2 mb-2" style="font-size: 24px">Tổng:-->
-      <!--      <span class="ml-3">-->
-      <!--            {{intoMoney | currency: 'VND'}}-->
-      <!--          </span>-->
-      <!--    </div>-->
-      <!--    <hr>-->
-      <!--    <div class="full-width pt-3">-->
-      <!--      <button (click)="makePayment()" class="col-span-2 btn-submit">Tiến hành thanh toán >></button>-->
-      <!--    </div>-->
     </div>
+
+  </div>
+  <div class="flex justify-center mb-4">
+    <button class="mt-4" (click)="saveInfor()" nz-button nzType="primary" style="height: auto; width: 300px">
+      <div class="p-1.5" style="font-size: 20px">
+        Lưu thông tin khách hàng
+      </div>
+    </button>
   </div>
   <div class="card p-5">
     <h1 class="font-bold" style="font-size: 30px">Đơn hàng của bạn</h1>
@@ -106,11 +94,11 @@
 
             <td class="align-middle font-20">
               <div class="flex justify-content-center">
-                {{cart.product.quantity_product}}
+                {{cart.quantity_product}}
               </div>
             </td>
             <td
-              class="align-middle font-20">{{ cart.product.price * cart.product.quantity_product | currency: 'VND'}}</td>
+              class="align-middle font-20">{{ cart.product.price * cart.quantity_product | currency: 'VND'}}</td>
           </tr>
           </tbody>
         </table>
@@ -118,6 +106,7 @@
           <div>Tạm tính:</div>
           <div>{{detailProduct.intoMoney | currency:'VND'}}</div>
         </div>
+        <hr>
         <div class="flex justify-content-between font-bold font-25 py-4">
           <ng-container *ngIf="detailProduct.intoMoney < 1000000; else freeShip">
             <div>Phí vận chuyển:</div>
@@ -128,11 +117,10 @@
             <div>{{detailProduct.freeShip | currency: 'VND'}}</div>
           </ng-template>
         </div>
+        <hr>
         <div class="flex justify-content-between font-bold font-25">
           <div class="justify-items-start">Tổng thanh toán:</div>
-          <div class="justify-items-end">{{detailProduct.intoMoney < 1000000 ?
-            detailProduct.intoMoney + detailProduct.intoMoney + detailProduct.transportFee :
-            detailProduct.intoMoney + detailProduct.freeShip| currency:'VND'}}</div>
+          <div class="justify-items-end">{{totalMoneyPayment | currency:'VND'}}</div>
         </div>
       </ng-container>
       <ng-template #noProduct>
@@ -150,25 +138,30 @@
   </div>
   <div class="card p-5 mt-4">
     <nz-radio-group [(ngModel)]="paymentCash">
-      <div>
-        <label nz-radio-button [nzValue]="paymentCash">Thanh toán bằng tiền mặt</label>
-        <ng-container *ngIf="paymentCash">
-          <div>
-            Trả tiền mặt khi giao hàng
-          </div>
-        </ng-container>
-      </div>
-      <div>
-        <label nz-radio-button [nzValue]="false">Thanh toán bằng ví VNPay</label>
-        <ng-container *ngIf="!paymentCash">
-          <button class="ml-8" (click)="VNPay()" nz-button nzType="primary" style="height: auto;">
-            <div class="p-1.5" style="font-size: 20px">
-              Thanh toán bằng ví VNPay
-            </div>
-          </button>
-        </ng-container>
+      <div class=" flex justify-around">
+        <div>
+          <label class="font-bold font-20" nz-radio [nzValue]="true" (select)="fnPaymentCash()">Thanh toán bằng tiền
+            mặt</label>
+        </div>
+        <div>
+          <label class="font-bold font-20" nz-radio [nzValue]="false" (select)="fnPaymentVNPay()">Thanh toán bằng ví
+            VNPay</label>
+        </div>
       </div>
     </nz-radio-group>
+    <ng-container *ngIf="paymentCash; else paymentByVNPay">
+      <div class="custom-alert-payment-cash mx-lg-5 mt-4 font-20">Khách hàng trả tiền khi nhận hàng</div>
+    </ng-container>
+    <ng-template #paymentByVNPay>
+      <div class="flex justify-center">
+        <button class="mt-4" (click)="VNPay()" nz-button nzType="primary" style="height: auto; width: 300px">
+          <div class="p-1.5" style="font-size: 20px">
+            Thanh toán bằng ví VNPay
+          </div>
+        </button>
+      </div>
+
+    </ng-template>
   </div>
 </div>
 

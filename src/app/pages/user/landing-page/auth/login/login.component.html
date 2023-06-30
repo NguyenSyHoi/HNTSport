@@ -1,37 +1,39 @@
-<form
-  *ngIf="!forgotPassword; else forgotPasswordForm"
-  class="w-2/5 m-auto mt-10"
-  nz-form
-  nzNoColon
-  nzLayout="vertical"
-  [formGroup]="loginForm"
->
-  <div class="text-center">
-    <h2 class="text-2xl font-sans">Sign In</h2>
-    <p class="mt-2 name-card">Don't have an account yet?</p>
-    <p class="link" (click)="register()">SIGN UP</p>
-  </div>
-  <nz-form-item>
-    <nz-form-label> EMAIL </nz-form-label>
-    <nz-form-control>
-      <input type="text" nz-input formControlName="email" placeholder="Email" [(ngModel)]="loginForm.controls['email']"/>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-label> PASSWORD </nz-form-label>
-    <nz-form-control>
-      <nz-input-group [nzSuffix]="eye">
-        <input
-          nz-input
-          [type]="showPassword ? 'text' : 'password'"
-          id=" nzSearch"
-          name=" nzSearch"
-          placeholder="Password"
-          formControlName="password"
-          [(ngModel)]="loginForm.controls['password']"
-        />
-      </nz-input-group>
-      <ng-template #eye>
+<ng-container *ngIf="(!newFunitureService.isLogin.value); else loginSuccess">
+  <form
+    *ngIf="!forgotPassword; else forgotPasswordForm"
+    class="w-2/5 m-auto mt-10"
+    nz-form
+    nzNoColon
+    nzLayout="vertical"
+    [formGroup]="loginForm"
+  >
+    <div class="text-center">
+      <h2 class="text-2xl font-sans">Đăng nhập</h2>
+      <p class="mt-2 name-card">Bạn chưa có tài khoản?</p>
+      <p class="link font-semibold sub-item font-25" (click)="register()">ĐĂNG KÝ</p>
+    </div>
+    <nz-form-item>
+      <nz-form-label class="font-bold"> TÊN ĐĂNG NHẬP</nz-form-label>
+      <nz-form-control>
+        <input type="text" nz-input formControlName="email" placeholder="Email"
+               [(ngModel)]="email"/>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label class="font-bold"> MẬT KHẨU</nz-form-label>
+      <nz-form-control>
+        <nz-input-group [nzSuffix]="eye">
+          <input
+            nz-input
+            [type]="showPassword ? 'text' : 'password'"pb-7
+            id=" nzSearch"
+            name=" nzSearch"
+            placeholder="Password"
+            formControlName="password"
+            [(ngModel)]="pass"
+          />
+        </nz-input-group>
+        <ng-template #eye>
         <span
           nz-icon
           [nzType]="showPassword ? 'eye-invisible' : 'eye'"
@@ -39,33 +41,53 @@
           class="cursor-pointer"
           (click)="showPassword = !showPassword"
         ></span>
-      </ng-template>
-    </nz-form-control>
-  </nz-form-item>
-  <div>
-    <button class="btn-submit p-2" (click)="login()">{{ "Sign in" | uppercase }}</button>
-  </div>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+    <div>
+      <button class="btn-submit p-2" (click)="login()">{{ "Đăng nhập" | uppercase }}</button>
+    </div>
 
-  <div class="mt-4 text-center">
-    <p class="link" (click)="forgotPassword = true">FORGOT PASSWORD</p>
-  </div>
-</form>
-<ng-template #forgotPasswordForm>
-  <div class="text-center">
-    <h2 class="text-2xl font-sans">Reset Password</h2>
-    <p class="mt-2 name-card mb-3">
-      Please enter your email address below. You will receive a <br />link to
-      reset your password.
-    </p>
-  </div>
-  <div class="w-2/5 m-auto">
-    <label for="email">EMAIL</label>
-    <input type="text" nz-input [formControl]="emailForgot" />
+<!--    <div class="mt-4 text-center">-->
+<!--      <p class="link " (click)="forgotPassword = true">Quên mật khẩu</p>-->
+<!--    </div>-->
+  </form>
+  <ng-template #forgotPasswordForm>
     <div class="text-center">
-      <button class="btn-submit mt-4 p-2">{{ "SUBMIT" | uppercase }}</button>
-      <span class="link mt-3 block" (click)="forgotPassword = false">
-        CANCEL</span
-      >
+      <h2 class="text-2xl font-sans">Đặt lại mật khẩu</h2>
+      <p class="mt-2 name-card mb-3">
+        Vui lòng nhập địa chỉ email của bạn dưới đây. Bạn sẽ nhận được một <br/>liên kết đến
+        Đặt lại mật khẩu của bạn.
+      </p>
+    </div>
+    <div class="w-2/5 m-auto">
+      <label for="email">EMAIL</label>
+      <input id="email" name="email" type="text" nz-input [formControl]="emailForgot"/>
+      <div class="text-center">
+        <button class="btn-submit mt-4 p-2">{{ "Gửi yêu cầu" | uppercase }}</button>
+        <span class="link mt-3 block" (click)="forgotPassword = false">
+        HUỶ BỎ</span
+        >
+      </div>
+    </div>
+  </ng-template>
+</ng-container>
+<ng-template #loginSuccess>
+  <div class="container custom-alert-login mt-4">
+    <div class="px-3" style="font-size: 20px">
+      Xin chào&nbsp;
+      <span class="font-bold font-25">{{newFunitureService.userName.value}}</span>
+      &nbsp;! Chào mừng bạn đến với cửa hàng thời trang HNT Sport! Chúc bạn có những trải nghiệm tuyệt vời!
+      Đừng quên mua sắm cho bản thân một món đồ nào đó nhé
+    </div>
+  </div>
+  <div class="flex">
+    <div class="pr-10" style="padding-left: 330px">
+      <button class="btn-submit p-2 px-4 mt-4" style="width: 220px" (click)="logOut()">{{ "Đăng xuất" | uppercase }}</button>
+    </div>
+    <div class="pl-10">
+      <button  class="btn-blue p-2 px-4 mt-4"style="width: 220px" [routerLink]="['/']">{{ "Đi tới trang chủ" | uppercase }}</button>
     </div>
   </div>
 </ng-template>
+

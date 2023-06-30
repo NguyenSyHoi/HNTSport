@@ -14,11 +14,11 @@ import { NzTableSortOrder } from 'ng-zorro-antd/table';
   providedIn: 'root'
 })
 export class NewFunitureService {
+  isLogin = new BehaviorSubject<boolean>(false)
+  userName = new BehaviorSubject<string>('')
+  billId = new BehaviorSubject(null);
   private readonly BASE_URL = environment.server;
   isLoading$ = new BehaviorSubject(false);
-  // minPrice$ = new BehaviorSubject<number | null>(null);
-  // maxPrice$ = new BehaviorSubject<number | null>(null);
-  // colortArr$ = new BehaviorSubject<string[]>([]);
   pageIndex$ = new BehaviorSubject(1);
   pageSize$ = new BehaviorSubject(5);
   sort$ = new BehaviorSubject<{ key: string; order: NzTableSortOrder }>({
@@ -77,5 +77,11 @@ export class NewFunitureService {
   }
   getProductsByCategory(id: number){
     return this.http.get<ResponseAPINoContent<CardItem[]>>(`${this.BASE_URL}/productT/getProductByCategory/${id}`)
+  }
+  getProductsByName(name: string){
+    return this.http.get<ResponseAPINoContent<CardItem[]>>(`${this.BASE_URL}/productT/getProductByName/${name}`)
+  }
+  getListProduct() {
+    return this.http.get<ResponseAPINoContent<CardItem[]>>('http://localhost:8090/api/productT/getAllProducts');
   }
 }

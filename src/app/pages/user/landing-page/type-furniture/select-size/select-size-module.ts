@@ -4,13 +4,12 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { CommonModule } from '@angular/common';
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {NzAlertModule} from "ng-zorro-antd/alert";
-import {NzNotificationModule} from "ng-zorro-antd/notification";
-export const PaymentModule = [
+export const SelectSizeModule = [
+
   CommonModule,
   NzInputModule,
   NzIconModule,
   NzCollapseModule,
-  NzNotificationModule,
   NzButtonModule,
   NzAlertModule,
 ]

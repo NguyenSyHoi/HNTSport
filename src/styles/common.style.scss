@@ -73,9 +73,16 @@
   width: 100%;
 }
 .btn-submit {
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px;
   background: #ed1c24;
+  color: #eaeaea;
+  @apply w-full rounded-lg hover:opacity-80 text-zinc-50;
+}
+.btn-blue {
+  font-size: 20px;
+  padding: 10px;
+  background: #007BFF;
   color: #eaeaea;
   @apply w-full rounded-lg hover:opacity-80 text-zinc-50;
 }

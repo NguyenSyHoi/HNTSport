@@ -1,1 +1,10 @@
 
+.custom-alert-login {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F6FFED;
+  border: 1px solid #B7EB8F;
+}
+.sub-item{
+  @apply leading-8 hover:cursor-pointer hover:underline hover:text-teal-700;
+}

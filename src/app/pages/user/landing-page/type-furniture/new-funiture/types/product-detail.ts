@@ -2,7 +2,7 @@ export interface ProductDetail {
   id: number
   image: string | null
   size: string
-  quantity: string
+  quantify: number
   price: number
   product: {
     id: number
@@ -19,6 +19,7 @@ export interface ProductDetail {
       categoryName: string
     }
   }
+  quantity_product: number
   status: string
   isActive: number
   image_overlay: string | null

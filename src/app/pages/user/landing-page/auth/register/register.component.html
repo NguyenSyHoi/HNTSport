@@ -9,26 +9,26 @@
   [formGroup]="registerForm"
 >
   <nz-form-item>
-    <nz-form-label> FIRST NAME </nz-form-label>
+    <nz-form-label> HỌ </nz-form-label>
     <nz-form-control>
       <input type="text" nz-input formControlName="firstName" placeholder="FirstName"/>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label> LAST NAME </nz-form-label>
+    <nz-form-label> TÊN </nz-form-label>
     <nz-form-control>
       <input type="text" nz-input formControlName="lastName" placeholder="LastName"/>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label> EMAIL </nz-form-label>
+    <nz-form-label> TÊN TÀI KHOẢN </nz-form-label>
     <nz-form-control>
-      <input type="text" nz-input formControlName="email" placeholder="Email" [(ngModel)]="registerForm.controls['email']"
+      <input type="text" nz-input formControlName="email" placeholder="Email" [(ngModel)]="userName"
       />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label> PASSWORD </nz-form-label>
+    <nz-form-label> MẬT KHẨU </nz-form-label>
     <nz-form-control>
       <nz-input-group [nzSuffix]="eye">
         <input
@@ -38,7 +38,7 @@
           name=" nzSearch"
           placeholder="Password"
           formControlName="password"
-          [(ngModel)]="registerForm.controls['password']"
+          [(ngModel)]="password"
 
         />
       </nz-input-group>
@@ -54,10 +54,10 @@
     </nz-form-control>
   </nz-form-item>
   <div>
-    <button  class="btn-submit p-2" (click)="register()">{{ "Create" | uppercase }}</button>
+    <button  class="btn-submit p-2" (click)="register()">{{ "ĐĂNG KÝ" | uppercase }}</button>
   </div>
   <div class="mt-4 text-center">
-    <p class="mt-2 name-card">Already have an account?</p>
-    <p class="link" (click)="login()">SIGN IN</p>
+    <p class="mt-2 name-card">ĐÃ CÓ TÀI KHOẢN?</p>
+    <p class="link" (click)="login()">ĐĂNG NHẬP</p>
   </div>
 </form>

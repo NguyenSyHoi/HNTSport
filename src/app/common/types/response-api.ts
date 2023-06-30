@@ -1,7 +1,11 @@
+import * as buffer from "buffer";
 
 export interface ResponseBase {
   errorCode: string;
   message: string;
+  url: string,
+  data: boolean,
+
 }
 export interface DataPagination<T> {
   data: Content<T>

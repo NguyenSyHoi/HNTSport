@@ -2,9 +2,9 @@
   <div class="wrap">
     <div class="col-span-1 leading-9">
       <ng-container *ngFor="let item of dataCol1">
-        <h2 class="font-bold text-sm">
-          {{ item.title }}
-        </h2>
+        <div class="logo cursor-pointer" nz-col nzSpan="6" >
+          <img style="width: 160px; border-radius: 25px;" class="mb-7" src="/assets/images/logo/HNT_Sport_Logo.png" alt="" srcset=""/>
+        </div>
         <p
           *ngFor="let item of item.content"
           class="title font-medium hover:text-teal-700 hover:underline cursor-pointer"
@@ -15,11 +15,11 @@
     </div>
     <div class="col-span-1 leading-9">
       <ng-container *ngFor="let item of dataCol2">
-        <h2 class="font-bold text-sm">
-          {{ item.title }}
+        <h2 class="font-bold text-sm font-30 mb-7" >
+          {{ item.title | uppercase }}
         </h2>
         <p
-          *ngFor="let item of item.content"
+          *ngFor="let item of item.content" [routerLink]="item.routerLink"
           class="title font-medium hover:text-teal-700 hover:underline cursor-pointer"
         >
           {{ item.label | uppercase }}
@@ -27,20 +27,9 @@
       </ng-container>
     </div>
     <div class="col-span-1">
-<!--      <h2 class="font-bold text-sm pb-5">TRADE PROGRAM</h2>-->
-<!--      <span-->
-<!--        >Join our <a>Trade Program</a> for access to trade pricing and-->
-<!--        benefits.</span-->
-<!--      >-->
-<!--      <ng-container *ngFor="let item of dataCol3">-->
-<!--        <h2 class="font-bold text-sm pb-5 pt-5">-->
-<!--          {{ item.title }}-->
-<!--        </h2>-->
-<!--        <span>{{ item.content }}</span>-->
-<!--      </ng-container>-->
       <div class="email mt-12">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input type="text" nz-input placeholder="Enter your email address" />
+          <input type="text" nz-input placeholder="Enter your email address"  style="height: 40px"/>
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <span nz-icon nzType="mail" nzTheme="outline"></span>

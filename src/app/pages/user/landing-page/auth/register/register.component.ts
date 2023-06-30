@@ -11,11 +11,14 @@ import {NzNotificationService} from "ng-zorro-antd/notification";
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   standalone: true,
+
   imports: [RegisterModule]
 })
 export class RegisterComponent implements OnInit {
   showPassword = false;
   registerForm!: FormGroup<RegisterForm>;
+  userName: string = '';
+  password: string = '';
 
   constructor(private router: Router,
               private fb: FormBuilder,
@@ -32,9 +35,7 @@ export class RegisterComponent implements OnInit {
   loadForm() {
     this.registerForm = this.fb.nonNullable.group<RegisterForm>({
       firstName: this.fb.nonNullable.control('',),
-      // [Validators.required]
       lastName: this.fb.nonNullable.control('',),
-      // [Validators.required]
       email: this.fb.nonNullable.control('', [Validators.required]),
       password: this.fb.nonNullable.control('', [Validators.required]),
     })
@@ -43,7 +44,7 @@ export class RegisterComponent implements OnInit {
   register() {
     const url = 'http://localhost:8090/api/account/addAccount';
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
-    const body = {user: this.registerForm.controls['email'], pass: this.registerForm.controls['password']};
+    const body = {user: this.userName, pass: this.password};
 
     this.http.post(url, body, {headers}).subscribe(
       (response) => {
